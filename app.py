@@ -30,7 +30,7 @@ def logged():
     remember = request.form.get("remember")
     
     if remember == "on":
-        resp = make_response(redirect(url_for('thank')))
+        resp = make_response(redirect(url_for('thank', name=name, message=None)))
         resp.set_cookie("username", name, max_age=60*60)
         resp.set_cookie("useremail", email, max_age=60*60)
         resp.set_cookie("userpassword", password, max_age=60*60)
