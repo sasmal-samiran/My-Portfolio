@@ -66,7 +66,10 @@ def sendEmail():
             
         except Exception as e:
             app.logger.error(f"Failed to send email: {e}")
-        return redirect(url_for('thank', name=name))
+        return '''{% extends 'thank.html' %}
+                {% block message %}
+                Sending Message
+                {% endblock message %} '''
     
     return redirect('/')
 
