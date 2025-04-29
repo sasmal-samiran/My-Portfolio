@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Samiran's Portfolio{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body> {% block content %}
+    <nav class="top-navbar">
+        <div class="left-navbar">
+            <h2>SAMI<span class="special-color">RAN</span></h2>
+        </div>
+        <div class="right-navbar">
+            <a href="#home"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="#about"><i class="fa-solid fa-user"></i>About</a>
+            <a href="#education"><i class="fa-solid fa-graduation-cap"></i>Education</a>
+            <a href="#skills"><i class="fa-solid fa-cogs"></i>Skills</a>
+            <a href="#projects"><i class="fa-solid fa-code"></i>Projects</a>
+            <!-- <a href="#resume"><i class="fa-solid fa-file-lines"></i>Resume</a> -->
+            <a href="#contact"><i class="fa-solid fa-phone"></i>Contact</a>
+        </div>
+        <div class="menu-button">
+            <i class="menu-icon fa-solid fa-bars"></i>
+        </div>
+        <div class="scroll-up">
+            <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </nav>
+    <div id="home"></div>
+    <video autoplay muted loop class="background-video">
+        <source src="{{ url_for('static', filename='images/background_video.mp4') }}" type="video/mp4">
+    </video>
+    <div class="background-animation"></div>
+    <div class="profile-pic">
+        <img src="{{ url_for('static', filename='images/my_pic.jpg')}}" alt="logo">
+    </div>
+    <div class="profile-container">
+
+        <div class="profile-description">
+            <h2 class="gradient-text">I'm Samiran Sasmal</h2>
+            <span id="element"></span>
+        </div>
+        <div class="social-links">
+            <a href="https://x.com/SasmalSamiran07" class="twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100073743833052&mibextid=ZbWKwL" class="facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/sasmal.samiran/?hl=en" class="instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/sasmal-samiran" class="github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/samiran-sasmal-441206275/" class="linkedin">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
+        <div class="profile-buttons">
+            <div class="profile-button">
+                <div class="button-guard"></div>
+                <a href="#projects">View my works</a>
+            </div>
+            <div class="profile-button">
+                <div class="button-guard"></div>
+                <a href="#contact">Contact me</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about"><i class="fa-solid fa-arrow-down"></i></a>
+
+        </div>
+    </div>
+
+    <section class="about-section" id="about">
+        <div class="about-pic">
+            <div class="inner-about-pic"></div>
+            <img class="inner-about-pic-img" src="{{ url_for('static', filename='images/my_pic2.png')}}"
+                alt="my picture">
+        </div>
+        <button class="about-pic-button">Click Me</button>
+        <div class="about-description">
+            <h1 class="gradient-text">Who am I</h1>
+            <div class="top-about-description">
+                <p>&emsp;&emsp;
+                    I’m a passionate Data Science student with a deep interest in Artificial Intelligence and its
+                    real-world
+                    applications. I'm currently developing my skills in Python, basic data analysis, and machine
+                    learning.
+                </p>
+                <button type="button" class="hidden-description-button hidden-description-on">Read more</button>
+                <div class="hidden-description">
+                    <p>&emsp;&emsp;I’m currently focusing on strengthening my Python programming skills, understanding
+                        core data
+                        science concepts, and working on small projects to apply what I learn. I’m also exploring
+                        beginner-friendly tools and frameworks like Jupyter Notebook, Pandas, Flask, simple AI models,
+                        and
+                        working on mini web applications.
+                    </p>
+                    <p>&emsp;&emsp;I also have hands-on experience with
+                        frontend technologies like HTML, CSS, and JavaScript and frameworks like Bootstrap—giving me a
+                        well-rounded skill set to build
+                        end-to-end solutions.
+
+                    </p>
+                    <button type="button" class="hidden-description-button hidden-description-off">Read less</button>
+                </div>
+                <div class="quick-biodata">
+                    <div>
+                        <h6>◎ Current Status</h6>
+                        <p>2nd Year B.Tech Data Science Student</p>
+                    </div>
+                    <div>
+                        <h6>◎ College</h6>
+                        <p>Brainware University</p>
+                    </div>
+                    <div>
+                        <h6>◎ Location</h6>
+                        <p>Kolkata, West Bengal</p>
+                    </div>
+                    <div>
+                        <h6>◎ Languages Known</h6>
+                        <p>C, Python, Java, MySQL</p>
+                    </div>
+                    <div>
+                        <h6>◎ Interests</h6>
+                        <p>AI, Machine Learning, Data Analysis</p>
+                    </div>
+                    <div>
+                        <h6>◎ Hobbies</h6>
+                        <p>Coding, Blogging, Reading Tech News</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="education" style="padding: 20px 0;">
+        <div class="education-section">
+            <h1 class="gradient-text">Education</h1>
+            <div class="outer-border">
+                <div class="symbols"></div>
+                <div class="inner-border">
+                    <div class="box-guard"></div>
+                    <h2 class="inner-border-heading">Brainware University</h2>
+                    <p>B.Tech in Computer Science and Engineering specialization in Data Science</p>
+                    <p>2023 - Present</p>
+                </div>
+                <div class="symbols"></div>
+                <div class="inner-border">
+                    <div class="box-guard"></div>
+                    <h2 class="inner-border-heading">Pancharul Srihari Vidyamandir</h2>
+                    <p>Higher Secondary</p>
+                    <p>2020 - 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" style="padding: 20px 0;">
+        <div class="skills-section">
+            <h1 class="gradient-text">My Skills</h1>
+            <div class="skills-description">
+                <div class="skill-card">
+                    <div class="skill-card-description">
+                        <h3 class="skill-category">Languages</h3>
+                        <ul class="skill-list">
+                            <li>C</li>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>JavaScript</li>
+                            <li>MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-description">
+                        <h3 class="skill-category">Frameworks</h3>
+                        <ul class="skill-list">
+                            <li>NumPy</li>
+                            <li>Pandas</li>
+                            <li>Flask</li>
+                            <li>Java AWT</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-description">
+                        <h3 class="skill-category">Tools</h3>
+                        <ul class="skill-list">
+                            <li>Bootstrap</li>
+                            <li>Git & GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="projects" style="padding: 20px 0;">
+        <div class="projects-section">
+            <h1 class="gradient-text">Projects</h1>
+            <div class="projects-description">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project Screenshot">
+                    <div class="project-content">
+                        <h3>A simple GUI Chatbot</h3>
+                        <p>Built using Java AWT</p>
+                        <a href="/projects" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project Screenshot">
+                    <div class="project-content">
+                        <h3>YouTube Clone</h3>
+                        <p>Built using HTML, CSS, JavaScript</p>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <section class="resume-section" id="resume">
+        <h2 class="resume-title">Resume</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Frontend Developer Intern – XYZ Pvt Ltd</h3>
+                    <p class="timeline-date">Jan 2025 – Present</p>
+                    <p>Developed responsive UI components and improved performance by 25% using AngularJS and Tailwind.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>B.Tech in Data Science – ABC University</h3>
+                    <p class="timeline-date">2021 – 2025</p>
+                    <p>Completed core courses in Python, ML, Data Structures, and Web Development.</p>
+                </div>
+            </div>
+
+        </div>
+    </section> -->
+
+    <section id="contact" style="padding: 20px 0;">
+        <div class="contact-section">
+            <h1 class="gradient-text">Contact</h1>
+            <div class="contact-description">
+                <div class="contact-details">
+                    <div class="contact-element">
+                        <span><i class="fa-solid fa-location-dot"></i></span>
+                        <span>
+                            <p>Address</p>
+                            <p>Barasat, North 24 Parganas, 700124</p>
+                        </span>
+                    </div>
+                    <div class="contact-element">
+                        <span><i class="fa-solid fa-phone"></i></span>
+                        <span>
+                            <p>Call Me</p>
+                            <p>8710066414</p>
+                        </span>
+                    </div>
+                    <div class="contact-element">
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        <span>
+                            <p>Email Me</p>
+                            <p>sasmalsamiran7557@gmail.com</p>
+                        </span>
+                    </div>
+                </div>
+                <form class="contact-form" action="sendemail" method="post">
+                    <div class="input-fields">
+                        <input type="text" placeholder="name" name="username" required>
+                        <input type="email" placeholder="Email" name="useremail" required>
+                        <select name="profession" required>
+                            <option selected>Select Your Profession</option>
+                            <option value="student">Student</option>
+                            <option value="developer">Developer</option>
+                            <option value="industry expert">Industry Expert</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                    <textarea name="usermessage" rows="5" required></textarea>
+                    <button>Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <p> sasmal-samiran </p>
+        <div class="footer-social-links">
+            <a href="https://x.com/SasmalSamiran07" class="twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100073743833052&mibextid=ZbWKwL" class="facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/sasmal.samiran/?hl=en" class="instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/sasmal-samiran" class="github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/samiran-sasmal-441206275/" class="linkedin">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Second year student of Computer science and engineering', 'Pursuing B.Tech from Brainware University', 'passionate about machine learning and data analytics', 'and real-world problems using solving '],
+            typeSpeed: 70,
+            backSpeed: 5,
+            backDelay: 1000,
+            loop: true,
+            cursorChar: '🖋',
+        });
+    </script>
+    <script src="{{ url_for('static', filename='script.js')}}"></script>
+    {% endblock content %}
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% block title %}Thank You{% endblock title %} 
+{% block content %}
+<div class="upper">
+    <div class="love-logo"><i class="fa-regular fa-heart"></i></div>
+    <div class="thanks">
+        <h1>Hi, {{name}}</h1>
+        <h1>Thank You for Registering</h1>
+        <p>Feel free to contact with me</p>
+    </div>
+    <div>
+        <a class="thank-btn" href="{{url_for('index')}}">Go to Home Page</a>
+    </div>
+</div>
+<div class="lower">
+    <div class="middle">
+        <h5>I'm always open to exciting collaborations — feel free to reach out if you have an idea or project in mind!</h5>
+        <a class="thank-btn" href="{{url_for('index')}}">Contact me</a>
+    </div>
+</div>
+{% endblock content %}

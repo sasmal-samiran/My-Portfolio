@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block title %}Login Page{% endblock title %}
+
+{% block content %}
+<div class="login-page">
+    <div class="login-wrapper">
+        <h1>Login</h1>
+        <form class="login-form" action="{{url_for('logged')}}" method="post">
+            <div class="login-field">
+                <input type="text" name="username" id="username" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="login-field">
+                <input type="email" name="useremail" id="email">
+                <label for="email">Email</label>
+            </div>
+            <div class="login-field">
+                <input type="password" name="userpassword" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <div class="remember-section">
+                <div class="remember-password">
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <div class="forget-password">
+                    <label>Forget password ?</label>
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='script2.js')}}"></script>
+
+{% endblock content %}

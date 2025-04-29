@@ -1,0 +1,5 @@
+portfolioVenv/
+__pycache__/
+*.pyc
+instance/
+.env
