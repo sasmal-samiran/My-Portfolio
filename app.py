@@ -19,8 +19,8 @@ def login():
     return render_template('login.html')
 
 @app.route('/thank/<name>')
-def thank(name):
-    return render_template("thank.html", name=name)
+def thank(name, message):
+    return render_template("thank.html", name=name, message=message)
 
 @app.route('/login/logged', methods=['POST'])
 def logged():
@@ -30,13 +30,13 @@ def logged():
     remember = request.form.get("remember")
     
     if remember == "on":
-        resp = make_response(redirect(url_for('thank', name=name)))
+        resp = make_response(redirect(url_for('thank')))
         resp.set_cookie("username", name, max_age=60*60)
         resp.set_cookie("useremail", email, max_age=60*60)
         resp.set_cookie("userpassword", password, max_age=60*60)
         return resp
     
-    return redirect(url_for('thank', name=name))
+    return redirect(url_for('thank', name=name, message="Registering"))
 
 @app.route('/sendemail/', methods=['GET', 'POST'])
 def sendEmail():
@@ -66,10 +66,7 @@ def sendEmail():
             
         except Exception as e:
             app.logger.error(f"Failed to send email: {e}")
-        return '''{% extends 'thank.html' %}
-                {% block message %}
-                Sending Message
-                {% endblock message %} '''
+        return redirect(url_for('thank', name=name, message="Sending message"))
     
     return redirect('/')
 
