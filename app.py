@@ -1,8 +1,14 @@
-from flask import Flask,render_template, request, url_for, redirect, make_response
+from flask import Flask, render_template, request, url_for, redirect, make_response
 from email.message import EmailMessage
 import smtplib, os
+import logging
 
+# Initialize Flask app
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(24)
+
+# Setup logging
+app.logger.setLevel(logging.INFO)
 
 @app.route('/')
 def index():
@@ -23,8 +29,8 @@ def logged():
     password = request.form.get("userpassword")
     remember = request.form.get("remember")
     
-    if remember=="on":
-        resp = make_response(redirect(url_for('thank')))
+    if remember == "on":
+        resp = make_response(redirect(url_for('thank', name=name)))
         resp.set_cookie("username", name, max_age=60*60)
         resp.set_cookie("useremail", email, max_age=60*60)
         resp.set_cookie("userpassword", password, max_age=60*60)
@@ -32,8 +38,7 @@ def logged():
     
     return redirect(url_for('thank', name=name))
 
-
-@app.route('/sendemail/', methods=['GET','POST'])
+@app.route('/sendemail/', methods=['GET', 'POST'])
 def sendEmail():
     if request.method == "POST":
         name = request.form.get('username')
@@ -42,7 +47,7 @@ def sendEmail():
         message = request.form.get('usermessage')
 
         my_email = os.environ.get("PORTFOLIO_EMAIL")
-        my_password =  os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
+        my_password = os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
         
         # Compose the email
         msg = EmailMessage()
@@ -57,12 +62,11 @@ def sendEmail():
                 server.ehlo()
                 server.starttls()
                 server.login(my_email, my_password)
-                # Send the email
                 server.send_message(msg)
             
         except Exception as e:
-            print(f"Failed to send email: {e}")
-        return "Done"
+            app.logger.error(f"Failed to send email: {e}")
+        return redirect(url_for('thank', name=name))
     
     return redirect('/')
 
