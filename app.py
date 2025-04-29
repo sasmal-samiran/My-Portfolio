@@ -19,7 +19,8 @@ def login():
     return render_template('login.html')
 
 @app.route('/thank/<name>')
-def thank(name, message):
+def thank(name):
+    message = request.args.get('message')
     return render_template("thank.html", name=name, message=message)
 
 @app.route('/login/logged', methods=['POST'])
