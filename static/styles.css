@@ -564,23 +564,115 @@
 }
 
 .project-card {
-    max-width: 400px;
+    width: 300px;
     margin: 0 20px;
     background-color: #0a445e;
     border-radius: 0 30px 0;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-8px);
 }
 
-.project-card img {
+.project-image {
     padding: 20px;
     height: 300px;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.project-image img {
+    width: 100%;
+    height: 100%;
+}
+.card-image-guard-top {
+    height: 500px;
+    width: 90%;
+    background-color: #00ffff;
+    opacity: 0;
+    position: absolute;
+    left: 70px;
+    top: 0px;
+    transform: rotateZ(45deg) translateY(550px);
+    transition: all 0.7s ease;
+}
+.project-image:hover .card-image-guard-top {
+    transform: rotateZ(45deg) translateY(-50px);
+    opacity: 0.6;
+}
+.card-image-guard-bottom {
+    height: 500px;
+    width: 90%;
+    background-color: #9ee5e5;
+    opacity: 0;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    transform: rotateZ(45deg) translateY(-550px);
+    transition: all 0.7s ease;
+}
+.project-image:hover .card-image-guard-bottom {
+    transform: rotateZ(45deg) translateY(50px);
+    opacity: 0.6;
+}
+
+.project-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #060606cc;
+    opacity: 0;
+    cursor: pointer;
+}
+.project-image:hover .project-icons {
+    opacity: 1;
+    transition: all 1s ease-in-out;
+    z-index: 10000;
+}
+
+.magnify-page {
+    width: 80vw;
+    height: auto;
+    background-color: #060606cc;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100000;
+    cursor: zoom-in;
+}
+.magnify-page img {
+    height: 80vh;
+}
+.close-image {
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+}
+.close-image:hover {
+    background-color: transparent;
+    color: red;
+    cursor: zoom-out;
 }
 
 .project-content {

@@ -1,10 +1,3 @@
-// color
-// [
-//     '#ff00cc' pink, '#00ffff' sky, '#ffcc00' yellow, '#ff0066' crimson,
-//     '#33ffcc' mint, '#6600ff' purple, '#ff3300' red, '#00ff99' green
-// ];
-
-
 
 ////// window resizing events
 function logWidth() {
@@ -100,7 +93,7 @@ const leftNavbar = document.querySelector('.left-navbar');
 let mediaQueryHeight600 = window.matchMedia('(max-height: 588px)');
 let mediaQueryWidth10 = window.matchMedia('(max-width: 10px)');
 
-function moveProfilePic(){
+function moveProfilePic() {
     profilePic.style.top = '46px';
     profilePic.style.left = '50px';
     profilePic.style.transform = 'translate(-50%, -50%) scale(0.16)';
@@ -113,9 +106,9 @@ function resetProfilePic() {
     leftNavbar.style.marginLeft = '35px';
 }
 window.addEventListener('resize', function () {
-    if ( mediaQueryHeight600.matches) {
+    if (mediaQueryHeight600.matches) {
         moveProfilePic();
-    }else if(window.scrollY <= 30) {
+    } else if (window.scrollY <= 30) {
         resetProfilePic();
     }
 });
@@ -123,7 +116,7 @@ window.addEventListener('resize', function () {
 window.addEventListener('scroll', function () {
     if (window.scrollY >= 30 || mediaQueryHeight600.matches) {
         moveProfilePic();
-    }else {
+    } else {
         resetProfilePic();
     }
 });
@@ -131,14 +124,14 @@ window.addEventListener('scroll', function () {
 const topNavbar = document.querySelector('.top-navbar');
 const scrollUp = document.querySelector('.scroll-up');
 window.addEventListener('scroll', () => {
-    if(window.pageYOffset >= 400) {
+    if (window.pageYOffset >= 400) {
         topNavbar.style.background = 'rgb( 0,0,0,0.6)';
         scrollUp.style.opacity = '1';
-    }else {
+    } else {
         topNavbar.style.background = 'transparent';
         scrollUp.style.opacity = '0';
     }
-}); 
+});
 
 // -----------------------------------------
 
@@ -151,7 +144,7 @@ innerAboutPicImg.addEventListener('mouseenter', animateAboutPic);
 innerAboutPicImg.addEventListener('mouseleave', removeAboutAnimation);
 aboutPicButton.addEventListener('click', (e) => {
     animateAboutPic(e);
-    setTimeout( () => {
+    setTimeout(() => {
         removeAboutAnimation();
         aboutPicButton.innerHTML = 'Click Again';
     }, 3000);
@@ -166,7 +159,7 @@ function animateAboutPic(e) {
     innerAboutPic.style.transform = 'rotateX(50deg)';
     innerAboutPicImg.style.transform = 'translateY(-50px) translateX(10px) scale(1.2)';
 }
-function removeAboutAnimation(){
+function removeAboutAnimation() {
     innerAboutPic.style.background = 'linear-gradient(65deg, #00ff99, #33ffcc, #00ffff)';
     innerAboutPic.style.boxShadow = '#00ff99 -10px 10px 30px';
     innerAboutPic.style.width = '300px';
@@ -190,5 +183,21 @@ hiddenDescriptionOffButton.addEventListener('click', () => {
     logWidth();
 })
 
+// ////// project cards handling
+const projectCardImage = document.querySelectorAll('.project-card-image');
+const magnifyPage = document.querySelector('.magnify-page');
+const magnify = document.querySelectorAll('.magnify');
+const magnifyImage = document.querySelector('.magnify-image');
+const closeImage = document.querySelector('.close-image');
 
+magnify.forEach((element, index) => {
+    element.addEventListener('click', () => {
+        magnifyPage.style.display = 'flex';
+        magnifyImage.setAttribute('src', projectCardImage[index].getAttribute('src'));
+    })
+});
 
+closeImage.addEventListener('click', () => {
+    magnifyPage.style.display = 'none';
+    magnifyImage.setAttribute('src', '');
+})

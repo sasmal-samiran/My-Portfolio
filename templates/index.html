@@ -209,7 +209,15 @@
             <h1 class="gradient-text">Projects</h1>
             <div class="projects-description">
                 <div class="project-card">
-                    <img src="{{url_for('static', filename='images/chatbot.png')}}" alt="Project Screenshot">
+                    <div class="project-image">
+                        <div class="card-image-guard-top"></div>
+                        <div class="card-image-guard-bottom"></div>
+                        <img class="project-card-image" src="{{url_for('static', filename='images/chatbot.png')}}"
+                            alt="Project Screenshot">
+                        <div class="project-icons">
+                            <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <h3>A simple GUI Chatbot</h3>
                         <p>Built using Java AWT</p>
@@ -218,12 +226,25 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200" alt="Project Screenshot">
+                    <div class="project-image">
+                        <div class="card-image-guard-top"></div>
+                        <div class="card-image-guard-bottom"></div>
+                        <img class="project-card-image" src="{{url_for('static', filename='images/youtube_clone.png')}}"
+                            alt="Project Screenshot">
+                        <div class="project-icons">
+                            <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <h3>YouTube Clone</h3>
                         <p>Built using HTML, CSS, JavaScript</p>
                         <a href="#" target="_blank">GitHub</a>
                     </div>
+                </div>
+
+                <div class="magnify-page">
+                    <img src="" alt="Maginfied Project Screenshot" class="magnify-image">
+                    <div class="close-image"><i class="fa-solid fa-magnifying-glass-minus"></i></div>
                 </div>
             </div>
         </div>
@@ -326,7 +347,7 @@
     <script>
         var typed = new Typed('#element', {
             strings: ['Second year student of Computer science and engineering', 'Pursuing B.Tech from Brainware University', 'passionate about machine learning and data analytics', 'and real-world problems using solving '],
-            typeSpeed: 70,
+            typeSpeed: 40,
             backSpeed: 5,
             backDelay: 1000,
             loop: true,
