@@ -1,10 +1,3 @@
-// color
-// [
-//     '#ff00cc' pink, '#00ffff' sky, '#ffcc00' yellow, '#ff0066' crimson,
-//     '#33ffcc' mint, '#6600ff' purple, '#ff3300' red, '#00ff99' green
-// ];
-
-
 
 ////// window resizing events
 function logWidth() {
