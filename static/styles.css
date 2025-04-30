@@ -578,9 +578,9 @@
 }
 
 .project-card img {
+    padding: 20px;
+    height: 300px;
     width: 100%;
-    height: auto;
-    display: block;
 }
 
 .project-content {
