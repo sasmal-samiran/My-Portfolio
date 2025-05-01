@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, make_response
+from flask import Flask, render_template, request, url_for, redirect, make_response,flash
 from email.message import EmailMessage
 import smtplib, os
 import logging
@@ -12,7 +12,8 @@ app.logger.setLevel(logging.INFO)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    alertMessage= request.args.get('alertMessage')
+    return render_template('index.html', alertMessage=alertMessage)
 
 @app.route('/login')
 def login():
@@ -42,11 +43,11 @@ def logged():
 @app.route('/sendemail/', methods=['GET', 'POST'])
 def sendEmail():
     if request.method == "POST":
-        name = request.form.get('username')
-        email = request.form.get('useremail')
+        name = request.form.get('username').strip()
+        email = request.form.get('useremail').strip()
         profession = request.form.get('profession')
-        message = request.form.get('usermessage')
-
+        message = request.form.get('usermessage').strip()
+        
         my_email = os.environ.get("PORTFOLIO_EMAIL")
         my_password = os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
         
@@ -63,18 +64,29 @@ def sendEmail():
                 server.ehlo()
                 server.starttls()
                 server.login(my_email, my_password)
-                server.send_message(msg)
+                if (message and len(message.replace(" ", "")) >=50):
+                    server.send_message(msg)
+                elif (message and len(message.replace(" ", "")) <50) :
+                    flash('Your message must have minimum 50 letters')
+                    return redirect(url_for('index'))
+                else:
+                    flash("Your message cannot be Empty")
+                    return redirect(url_for('index'))
+            
+            return redirect(url_for('thank', name=name, message="Sending message"))
             
         except Exception as e:
             app.logger.error(f"Failed to send email: {e}")
-        return redirect(url_for('thank', name=name, message="Sending message"))
     
     return redirect('/')
 
-@app.route('/projects/')
-def projects():
+@app.route('/projects/<path:directory>')
+def projects(directory):
     if request.cookies.get("username") and request.cookies.get("userpassword"):
-        return redirect("https://github.com/sasmal-samiran/javaAwt.git")
+        if directory != "null":
+            return redirect(f"https://github.com/sasmal-samiran/{directory}")
+        else:
+            return "<h1>Project Not Available</h1>"
     
     return redirect(url_for('login'))
 

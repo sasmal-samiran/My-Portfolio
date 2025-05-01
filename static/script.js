@@ -85,6 +85,25 @@ function closeMenuOnOutsideClick(e) {
         popupMenu.classList.remove('right-navbar-active');
     }
 }
+// navbar button animation
+const navButtons = document.querySelectorAll('.nav-button');
+const navSections = document.querySelectorAll('.nav-section');
+window.addEventListener('scroll', () => {
+    navSections.forEach((navSection, index) => {
+        const sectionTop = navSection.offsetTop;
+        const sectionHeight = navSection.offsetHeight;
+        const scrollPosition = window.pageYOffset;
+        if (scrollPosition <= 400) {
+            navButtons.forEach(btn => btn.classList.remove('special-color'));
+            navButtons[0].classList.add('special-color');
+        }
+        else if (scrollPosition >= sectionTop - sectionHeight / 3 &&
+            scrollPosition < sectionTop + sectionHeight - sectionHeight / 3) {
+            navButtons.forEach(btn => btn.classList.remove('special-color'));
+            navButtons[index].classList.add('special-color');
+        }
+    });
+});
 // -----------------------------------------
 
 // profile pic handling
@@ -181,7 +200,13 @@ hiddenDescriptionOffButton.addEventListener('click', () => {
     hiddenDescription.style.display = 'none';
     hiddenDescriptionOnButton.style.display = 'block';
     logWidth();
-})
+});
+
+///// tech stack
+const scrollContainer = document.getElementById('tech-scroll');
+const items = scrollContainer.querySelector('.tech-items');
+const clone = items.cloneNode(true);
+scrollContainer.appendChild(clone);
 
 // ////// project cards handling
 const projectCardImage = document.querySelectorAll('.project-card-image');
@@ -193,11 +218,11 @@ const closeImage = document.querySelector('.close-image');
 magnify.forEach((element, index) => {
     element.addEventListener('click', () => {
         magnifyPage.style.display = 'flex';
-        magnifyImage.setAttribute('src', projectCardImage[index].getAttribute('src'));
-    })
+        magnifyImage.style.backgroundImage = `url(${projectCardImage[index].getAttribute('src')})`;
+    });
 });
 
 closeImage.addEventListener('click', () => {
     magnifyPage.style.display = 'none';
-    magnifyImage.setAttribute('src', '');
-})
+    magnifyImage.style.backgroundImage = '';
+});
