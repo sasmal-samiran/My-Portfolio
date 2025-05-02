@@ -202,12 +202,6 @@ hiddenDescriptionOffButton.addEventListener('click', () => {
     logWidth();
 });
 
-///// tech stack
-const scrollContainer = document.getElementById('tech-scroll');
-const items = scrollContainer.querySelector('.tech-items');
-const clone = items.cloneNode(true);
-scrollContainer.appendChild(clone);
-
 // ////// project cards handling
 const projectCardImage = document.querySelectorAll('.project-card-image');
 const magnifyPage = document.querySelector('.magnify-page');
@@ -223,6 +217,6 @@ magnify.forEach((element, index) => {
 });
 
 closeImage.addEventListener('click', () => {
-    magnifyPage.style.display = 'none';
     magnifyImage.style.backgroundImage = '';
+    magnifyPage.style.display = 'none';
 });

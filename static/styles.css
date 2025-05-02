@@ -658,6 +658,11 @@
     transform: translate(-50%, -50%);
     z-index: 100000;
     cursor: zoom-in;
+    animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .magnify-image {
@@ -777,15 +782,25 @@
     justify-content: center;
     align-items: center;
 }
+.contact-credentials {
+    background-color: rgb(156, 205, 205);
+}
+.address-map {
+    padding: 30px;
+}
+.address-map iframe{
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 0 10px black;
+}
 
 .contact-description {
-    padding: 50px;
-    background-color: rgb(156, 205, 205);
+    padding: 0 50px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    min-height: 500px;
+    min-height: 400px;
 }
 
 .contact-details {

@@ -290,46 +290,54 @@
     <section class="nav-section" id="contact" style="padding: 20px 0;">
         <div class="contact-section">
             <h1 class="gradient-text">Contact</h1>
-            <div class="contact-description">
-                <div class="contact-details">
-                    <div class="contact-element">
-                        <span><i class="fa-solid fa-location-dot"></i></span>
-                        <span>
-                            <p>Address</p>
-                            <p>Barasat, North 24 Parganas, 700124</p>
-                        </span>
-                    </div>
-                    <div class="contact-element">
-                        <span><i class="fa-solid fa-phone"></i></span>
-                        <span>
-                            <p>Call Me</p>
-                            <p>8710066414</p>
-                        </span>
-                    </div>
-                    <div class="contact-element">
-                        <span><i class="fa-solid fa-envelope"></i></span>
-                        <span>
-                            <p>Email Me</p>
-                            <p>sasmalsamiran7557@gmail.com</p>
-                        </span>
-                    </div>
+            
+            <div class="contact-credentials">
+                <div class="address-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1945.3640717527408!2d88.49753714193756!3d22.731938996492755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8a23faf6ebbc3%3A0x87a1be2b67cde60b!2sBrainware%20University%20Gate!5e1!3m2!1sen!2sin!4v1746171535196!5m2!1sen!2sin"
+                        allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <form class="contact-form" action="sendemail" method="post">
-                    <div class="input-fields">
-                        <input type="text" placeholder="name" name="username" required>
-                        <input type="email" placeholder="Email" name="useremail" required>
-                        <select name="profession" required>
-                            <option value="Not Selected" selected>Select Your Profession</option>
-                            <option value="Student">Student</option>
-                            <option value="Developer">Developer</option>
-                            <option value="Industry Expert">Industry Expert</option>
-                            <option value="Others">Others</option>
-                        </select>
+                <div class="contact-description">
+                    <div class="contact-details">
+                        <div class="contact-element">
+                            <span><i class="fa-solid fa-location-dot"></i></span>
+                            <span>
+                                <p>Address</p>
+                                <p>Barasat, North 24 Parganas, 700124</p>
+                            </span>
+                        </div>
+                        <div class="contact-element">
+                            <span><i class="fa-solid fa-phone"></i></span>
+                            <span>
+                                <p>Call Me</p>
+                                <p>8710066414</p>
+                            </span>
+                        </div>
+                        <div class="contact-element">
+                            <span><i class="fa-solid fa-envelope"></i></span>
+                            <span>
+                                <p>Email Me</p>
+                                <p>sasmalsamiran7557@gmail.com</p>
+                            </span>
+                        </div>
                     </div>
-                    <textarea name="usermessage" placeholder="Your Message (Atleast 50 letters)" rows="5"
-                        required></textarea>
-                    <button>Send Message</button>
-                </form>
+                    <form class="contact-form" action="sendemail" method="post">
+                        <div class="input-fields">
+                            <input type="text" placeholder="name" name="username" required>
+                            <input type="email" placeholder="Email" name="useremail" required>
+                            <select name="profession" required>
+                                <option value="Not Selected" selected>Select Your Profession</option>
+                                <option value="Student">Student</option>
+                                <option value="Developer">Developer</option>
+                                <option value="Industry Expert">Industry Expert</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <textarea name="usermessage" placeholder="Your Message (Atleast 50 letters)" rows="5"
+                            required></textarea>
+                        <button>Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
