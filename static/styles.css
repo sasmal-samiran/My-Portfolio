@@ -20,6 +20,59 @@
     animation: neonBorder 4s linear infinite;
 }
 
+/* preloading page */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid #040404;
+    border-top: 8px solid;
+    border-radius: 50%;
+    
+}
+.outermost-loader {
+    width: 90px;
+    height: 90px;
+    border-top-color: #0cadf7;
+    animation: spin 1s linear infinite;
+}
+.outer-loader {
+    width: 70px;
+    height: 70px;
+    border-top-color: #db3474;
+    animation: spin 2s linear infinite;
+}
+.inner-loader {
+    width: 50px;
+    height: 50px;
+    border-top-color: #34db34;
+    animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#main-website {
+    opacity: 0;
+}
+
+
 /* home page */
 #home {
     position: absolute;
@@ -44,7 +97,7 @@
     background: linear-gradient(0deg, #179191, rgb(36, 68, 73), rgb(28, 45, 44), black) repeat fixed;
     background-size: 100% 100%;
     box-shadow: inset 0 100px 100px #14405a, 0 -20px 10px #14405a, 0 -40px 20px #14405a, 0 -70px 50px #14405a;
-    z-index: -5;
+    z-index: -1;
 }
 
 /* top navbar */
@@ -496,7 +549,7 @@
     width: 100%;
     height: 100%;
     background-color: #0cadf74D;
-    z-index: -1;
+    z-index: 0;
     transform: translateX(-70px);
     transition: all 1.5s ease;
 }
@@ -660,9 +713,15 @@
     cursor: zoom-in;
     animation: fadeIn 0.4s ease-in-out;
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .magnify-image {
@@ -782,13 +841,16 @@
     justify-content: center;
     align-items: center;
 }
+
 .contact-credentials {
     background-color: rgb(156, 205, 205);
 }
+
 .address-map {
     padding: 30px;
 }
-.address-map iframe{
+
+.address-map iframe {
     width: 100%;
     height: 300px;
     box-shadow: 0 0 10px black;
@@ -949,15 +1011,32 @@
     align-items: center;
     justify-content: space-between;
     min-width: 50vw;
+    padding: 20px;
+    background-color: rgba(255, 0, 0, 0.445);
+    border: 2px solid red;
+    border-radius: 10px;
+    color: white;
+    text-shadow: 1.5px 1.5px 2px black;
+    backdrop-filter: blur(10px);
+}
+.custom-alert span {
+    margin: 0 20px;
+    flex: 1;
 }
 
 .custom-alert.hidden {
     display: none;
 }
 
+.custom-alert .alert-icon {
+    color: red;
+    font-size: 20px;
+}
+
 .custom-alert .close-btn {
-    color: black;
-    border: 1px solid black;
+    color: red;
+    border: 1px solid red;
+    background-color: transparent;
     border-radius: 50%;
     height: 30px;
     width: 30px;
@@ -1171,6 +1250,10 @@
 
     .projects-description {
         flex-direction: column;
+    }
+    
+    .custom-alert {
+        min-width: 90vw;
     }
 }
 

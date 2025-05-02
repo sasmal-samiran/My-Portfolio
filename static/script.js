@@ -1,3 +1,10 @@
+// preloading page
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader-wrapper");
+    loader.style.display = "none";
+    const mainWebsite = document.getElementById("main-website");
+    mainWebsite.style.opacity = "1";
+});
 
 ////// window resizing events
 function logWidth() {
