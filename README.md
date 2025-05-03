@@ -1,12 +1,9 @@
-# My-Portfolio
-This is my first website about myself, built using HTML, CSS, JS, Python Flask
-
 # My Portfolio Website
 
 Welcome to my personal portfolio website! This website showcases my skills, projects, and achievements as a technical person, along with information about my career and expertise in the tech industry.
 
 ## Table of Contents
-- [About Me](#about)
+- [About Me](#about-me)
 - [Education](#education)
 - [Skills](#skills)
 - [Projects](#projects)
@@ -16,6 +13,7 @@ Welcome to my personal portfolio website! This website showcases my skills, proj
 I am a Data Science Student with experience in various programming languages and technologies. I specialize in:
 - **Machine Learning** and **AI** tools
 - **Data Science**
+
 Apart from my domain knowledge:
 - **Web Development** (Frontend & Backend)
 
