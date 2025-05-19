@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Page{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+{% endblock css %}
+
+{% block js %}
+
+{% endblock js %}
+
+{% block content %}
+<div class="register-page">
+    <div class="register-wrapper">
+        <div class="left-panel">
+            <div class="quote">Register  ______</div>
+            <div class="title">Get Connected With Me</div>
+            <div class="subtitle">You can get everything you want if you work hard, trust the process, and stick to
+                the plan.</div>
+        </div>
+        <div class="right-panel">
+            <h2>Sign Up Account</h2>
+            <p>Enter your personal data to create your account</p>
+            <form action="{{url_for('registered')}}" method="post">
+                <div class="signin">
+                    <div class="google-signin">
+                        <img src="https://www.svgrepo.com/show/355037/google.svg" width="20px" alt="Google Icon" />
+                        &nbsp;Google
+                    </div>
+                    <div class="github-signin">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/250px-GitHub_Invertocat_Logo.svg.png" width="20px" alt="Google Icon" />
+                        &nbsp;GitHub
+                    </div>
+                </div>
+                <div class="or-section">
+                    <div><hr></div>
+                    <div>Or</div>
+                    <div><hr></div>
+                </div>
+                <div class="username">
+                    <input type="text" name="userfirstname" id="userfirstname" placeholder="First Name" required/>
+                    <input type="text" name="userlastname" id="userlastname" placeholder="Last Name" required />
+                </div>
+                <input type="email" name="useremail" placeholder="Enter your email" required />
+                <input type="password" name="userpassword" placeholder="Enter your password" required />
+                <div class="remember-forgot">
+                    <label><input type="checkbox" /> Remember me</label>
+                    <a href="{{ url_for('forgetpass') }}">Forgot Password?</a>
+                </div>
+                <button class="signin">Sign Up</button>
+                
+            </form>
+            <div class="bottom-text">
+                Already have an account? <a href="{{url_for('login')}}">Sign In</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

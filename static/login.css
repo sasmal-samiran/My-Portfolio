@@ -1,0 +1,115 @@
+/* login page */
+.login-page {
+    height: 100vh;
+    background-image: url("images/login_background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animateBG 30s ease-in-out infinite;
+}
+
+.login-wrapper {
+    height: 500px;
+    width: 500px;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    backdrop-filter: blur(3px);
+    background-color: rgb(0, 0, 0, 0.2);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    height: 70%;
+    width: 60%;
+    position: relative;
+}
+
+.login-field {
+    margin: 15px 0;
+    padding-top: 15px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border-bottom: 2px solid #ffffff99;
+}
+
+.login-field label {
+    padding: 0 10px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #ffffff99;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-field input {
+    height: 30px;
+    margin: 0 15px;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.login-field input:focus {
+    outline: none;
+}
+
+.remember-section {
+    display: flex;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button button {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+}
+
+.submit-button button:active {
+    border: 2px solid black;
+    transition: all 0.1s ease-in-out;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.7) inset !important;
+    -webkit-text-fill-color: #fff !important;
+    caret-color: #fff;
+}
+
+/* animationa */
+@keyframes animateBG {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* media queris */
+@media (max-width: 500px) {
+    .login-wrapper {
+        transform: scale(0.8);
+    }
+
+    .remember-section {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 25px;
+    }
+}

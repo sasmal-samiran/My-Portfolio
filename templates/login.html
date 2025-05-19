@@ -1,39 +1,48 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 
 {% block title %}Login Page{% endblock title %}
 
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+{% endblock css %}
+
+{% block js %}
+<script defer src="{{ url_for('static', filename='login.js')}}"></script>
+{% endblock js %}
+
 {% block content %}
 <div class="login-page">
-    <div class="login-wrapper">
-        <h1>Login</h1>
-        <form class="login-form" action="{{url_for('logged')}}" method="post">
+    <div class="login-wrapper zoom-in">
+        <h1 class="fade-in">Login</h1>
+        <form class="login-form" action="{{ url_for('logged') }}" method="post">
+            <!-- Hidden input to pass the next page -->
+            <input type="hidden" name="next" value="{{ next or url_for('index') }}">
             <div class="login-field">
-                <input type="text" name="username" id="username" required>
-                <label for="username">Username</label>
+                <input class="login-field-input" type="text" name="username" id="username" autocomplete="username">
+                <label class="login-field-label slide-left" for="username">Username</label>
             </div>
             <div class="login-field">
-                <input type="email" name="useremail" id="email">
-                <label for="email">Email</label>
+                <input class="login-field-input" type="email" name="useremail" id="email" autocomplete="email" required>
+                <label class="login-field-label slide-left" for="email">Email</label>
             </div>
             <div class="login-field">
-                <input type="password" name="userpassword" id="password" required>
-                <label for="password">Password</label>
+                <input class="login-field-input" type="password" name="userpassword" id="password" required
+                    autocomplete="current-password">
+                <label class="login-field-label slide-left" for="password">Password</label>
             </div>
             <div class="remember-section">
-                <div class="remember-password">
+                <div class="remember-password slide-left">
                     <input type="checkbox" name="remember" id="remember">
                     <label for="remember">Remember me</label>
                 </div>
-                <div class="forget-password">
-                    <label>Forget password ?</label>
+                <div class="forget-password slide-right">
+                    <a href="{{ url_for('forgetpass') }}">Forgot password?</a>
                 </div>
             </div>
-            <div class="submit-button">
+            <div class="submit-button slide-up">
                 <button type="submit">Login</button>
             </div>
         </form>
     </div>
 </div>
-<script src="{{ url_for('static', filename='script2.js')}}"></script>
-
 {% endblock content %}

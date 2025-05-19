@@ -1,0 +1,216 @@
+/* register page */
+.register-page {
+    min-height: 100vh;
+    padding: 50px 0;
+    background-image: url("images/register_background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-wrapper {
+    display: flex;
+    gap: 0;
+    margin: 0 50px;
+    min-height: 600px;
+    transform: none;
+    animation: registerWrapperAnimation 0.7s ease-out;
+}
+
+.register-wrapper .left-panel {
+    width: calc(100%/2);
+    height: auto;
+    background-color: #00000063;
+    padding: 40px;
+    position: relative;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border: 15px solid white;
+    border-right: none;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.register-wrapper .left-panel::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 7px solid white;
+    border-radius: 45px 30px 30px 45px;
+    outline: 10px solid white;
+}
+
+.register-wrapper .quote {
+    flex: 1;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 150px;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+.register-wrapper .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 200px;
+    color: rgb(128, 238, 241);
+}
+
+.register-wrapper .subtitle {
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgb(249, 250, 250, 0.8);
+}
+
+.register-wrapper .right-panel {
+    width: calc(100%/2);
+    height: auto;
+    background: #fff;
+    padding: 60px 80px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.register-wrapper .signin {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.register-wrapper .google-signin,
+.register-wrapper .github-signin {
+    width: calc(100%/2);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.register-wrapper h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.register-wrapper .or-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.register-wrapper .or-section div:nth-of-type(2n+1) {
+    flex: 1;
+}
+
+.register-wrapper form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.register-wrapper .username {
+    display: flex;
+    gap: 12px;
+}
+
+.register-wrapper .username input {
+    flex: 1;
+    width: 100%;
+}
+
+.register-wrapper input[type="text"],
+.register-wrapper input[type="email"],
+.register-wrapper input[type="password"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.register-wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.register-wrapper button.signin {
+    padding: 14px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-wrapper .bottom-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-wrapper .bottom-text a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* animations */
+@keyframes registerWrapperAnimation {
+    from {
+        transform: scale(0.3) skew(25deg, 10deg) rotateX(45deg) translate(-700px, -500px);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+/* media queries */
+@media (min-width: 1600px) {
+    .register-wrapper {
+        width: 1200px;
+    }
+}
+
+@media (max-width: 950px) {
+    .register-wrapper .left-panel {
+        display: none;
+    }
+
+    .register-wrapper .right-panel {
+        flex: 1;
+        border-radius: 30px;
+    }
+}
+
+@media (max-width: 550px) {
+    .register-wrapper {
+        margin: 20px;
+    }
+
+    .register-wrapper .right-panel {
+        padding: 50px 30px;
+    }
+}

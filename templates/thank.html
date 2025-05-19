@@ -1,5 +1,12 @@
-{% extends 'index.html' %}
-{% block title %}Thank You{% endblock title %} 
+{% extends 'base.html' %}
+{% block title %}Thank You{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='thank.css') }}">
+{% endblock css %}
+
+{% block js %}{% endblock js %}
+
 {% block content %}
 <div class="upper">
     <div class="love-logo"><i class="fa-regular fa-heart"></i></div>
@@ -14,8 +21,9 @@
 </div>
 <div class="lower">
     <div class="middle">
-        <h5>I'm always open to exciting collaborations — feel free to reach out if you have an idea or project in mind!</h5>
-        <a class="thank-btn" href="{{url_for('index')}}">Contact me</a>
+        <h5>I'm always open to exciting collaborations — feel free to reach out if you have an idea or project in mind!
+        </h5>
+        <a class="thank-btn" href="/#contact">Contact me</a>
     </div>
 </div>
 {% endblock content %}

@@ -1,62 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Samiran's Portfolio{% endblock title %}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% block title %}Samiran's Portfolio{% endblock title %}
 
-</head>
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock css %}
 
-<body> {% block content %}
-    <div id="loader-wrapper">
-        <div class="outermost-loader loader">
-            <div class="outer-loader loader">
-                <div class="inner-loader loader"></div>
-            </div>
+{% block js %}
+<script defer src="{{ url_for('static', filename='index.js')}}"></script>
+{% endblock js %}
+
+{% block content %}
+<div id="loader-wrapper">
+    <div class="outermost-loader loader">
+        <div class="outer-loader loader">
+            <div class="inner-loader loader"></div>
         </div>
     </div>
-    <div id="main-website">
-        <nav class="top-navbar">
-            <div class="left-navbar">
-                <h2>SAMI<span class="special-color">RAN</span></h2>
-            </div>
-            <div class="right-navbar">
-                <a href="#home" class="nav-button special-color"><i class="fa-solid fa-house"></i>Home</a>
-                <a href="#about" class="nav-button"><i class="fa-solid fa-user"></i>About</a>
-                <a href="#education" class="nav-button"><i class="fa-solid fa-graduation-cap"></i>Education</a>
-                <a href="#skills" class="nav-button"><i class="fa-solid fa-cogs"></i>Skills</a>
-                <a href="#projects" class="nav-button"><i class="fa-solid fa-code"></i>Projects</a>
-                <a href="#resume" class="nav-button"><i class="fa-solid fa-file-lines"></i>Resume</a>
-                <a href="#contact" class="nav-button"><i class="fa-solid fa-phone"></i>Contact</a>
-            </div>
-            <div class="menu-button">
-                <i class="menu-icon fa-solid fa-bars"></i>
-            </div>
-            <div class="scroll-up">
-                <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
-            </div>
-        </nav>
-        <div class="home-section nav-section" id="home"></div>
-        <video autoplay muted loop class="background-video">
-            <source src="{{ url_for('static', filename='images/background_video.mp4') }}" type="video/mp4">
-        </video>
-        <div class="background-animation"></div>
-        <div class="profile-pic">
-            <img src="{{ url_for('static', filename='images/my_pic.jpg')}}" alt="logo">
+</div>
+<div id="main-website">
+    <nav class="top-navbar">
+        <div class="left-navbar">
+            <h2>SAMI<span class="special-color">RAN</span></h2>
         </div>
-        <div class="profile-container">
+        <div class="right-navbar">
+            <a href="#home" class="nav-button special-color" style="--i:1"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="#about" class="nav-button" style="--i:2"><i class="fa-solid fa-user"></i>About</a>
+            <a href="#education" class="nav-button" style="--i:3"><i
+                    class="fa-solid fa-graduation-cap"></i>Education</a>
+            <a href="#skills" class="nav-button" style="--i:4"><i class="fa-solid fa-cogs"></i>Skills</a>
+            <a href="#projects" class="nav-button" style="--i:5"><i class="fa-solid fa-code"></i>Projects</a>
+            <a href="#resume" class="nav-button" style="--i:6"><i class="fa-solid fa-file-lines"></i>Resume</a>
+            <a href="#contact" class="nav-button" style="--i:7"><i class="fa-solid fa-phone"></i>Contact</a>
+        </div>
+        <div class="menu-button">
+            <i class="menu-icon fa-solid fa-bars"></i>
+        </div>
+        <div class="scroll-up">
+            <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </nav>
 
+    <div class="background-animation">
+        <div class="home-section nav-section" id="home">
+            <video autoplay muted loop class="background-video">
+                <source src="{{ url_for('static', filename='images/background_video.mp4') }}" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="profile-pic fade-in">
+            <img src="{{ url_for('static', filename='images/my_pic.jpg')}}" alt="logo" loading="lazy">
+        </div>
+        <img class="background-logo" src="{{url_for('static', filename='images/logo.png')}}" alt="my logo">
+        <div class="top-corner-circle"></div>
+
+        <div class="profile-container">
             <div class="profile-description">
-                <h2 class="gradient-text">I'm Samiran Sasmal</h2>
+                <h2 class="gradient-text slide-left">I'm Samiran Sasmal</h2>
                 <span id="element"></span>
             </div>
-            <div class="social-links">
+            <div class="social-links slide-right">
                 <a href="https://x.com/SasmalSamiran07" class="twitter">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
@@ -74,39 +77,43 @@
                 </a>
             </div>
             <div class="profile-buttons">
-                <div class="profile-button">
+                <div class="profile-button slide-right">
                     <div class="button-guard"></div>
                     <a href="#projects">View my works</a>
                 </div>
-                <div class="profile-button">
+                <div class="profile-button slide-left">
                     <div class="button-guard"></div>
                     <a href="#contact">Contact me</a>
                 </div>
             </div>
-            <div class="scroll-down">
+            <div class="scroll-down slide-up">
                 <a href="#about"><i class="fa-solid fa-arrow-down"></i></a>
 
             </div>
         </div>
 
+        <div class="register-button"><a href="{{url_for('register')}}" target="_blank">Register</a></div>
+        <div class="mobile-register-button"><a href="{{url_for('register')}}" target="_blank">Register</a></div>
+
         <section class="about-section nav-section" id="about">
             <div class="about-pic">
-                <div class="inner-about-pic"></div>
-                <img class="inner-about-pic-img" src="{{ url_for('static', filename='images/my_pic2.png')}}"
-                    alt="my picture">
+                <div class="inner-about-pic slide-up-right"></div>
+                <img class="inner-about-pic-img slide-up-right"
+                    src="{{ url_for('static', filename='images/my_pic2.png')}}" alt="my picture" loading="lazy">
             </div>
             <button class="about-pic-button">Click Me</button>
             <div class="about-description">
-                <h1 class="gradient-text">Who am I</h1>
+                <h1 class="gradient-text slide-down">Who am I</h1>
                 <div class="top-about-description">
-                    <p>&emsp;&emsp;
+                    <p class="slide-left">&emsp;&emsp;
                         I’m a passionate Data Science student with a deep interest in Artificial Intelligence and its
                         real-world
                         applications. I'm currently developing my skills in Python, basic data analysis, and machine
                         learning.
                     </p>
-                    <button type="button" class="hidden-description-button hidden-description-on">Read more</button>
-                    <div class="hidden-description">
+                    <button type="button" class="hidden-description-button hidden-description-on fade-in">Read
+                        more</button>
+                    <div class="hidden-description slide-down">
                         <p>&emsp;&emsp;I’m currently focusing on strengthening my Python programming skills,
                             understanding
                             core data
@@ -123,32 +130,32 @@
                             end-to-end solutions.
 
                         </p>
-                        <button type="button" class="hidden-description-button hidden-description-off">Read
+                        <button type="button" class="hidden-description-button hidden-description-off fade-in">Read
                             less</button>
                     </div>
                     <div class="quick-biodata">
                         <hr>
-                        <div>
+                        <div class="slide-up">
                             <h6>◎ Current Status</h6>
                             <p>2nd Year B.Tech Data Science Student</p>
                         </div>
-                        <div>
+                        <div class="slide-up">
                             <h6>◎ College</h6>
                             <p>Brainware University</p>
                         </div>
-                        <div>
+                        <div class="slide-up">
                             <h6>◎ Location</h6>
                             <p>Kolkata, West Bengal</p>
                         </div>
-                        <div>
+                        <div class="slide-up">
                             <h6>◎ Languages Known</h6>
                             <p>C, Python, Java, MySQL</p>
                         </div>
-                        <div>
+                        <div class="slide-up">
                             <h6>◎ Interests</h6>
                             <p>AI, Machine Learning, Data Analysis</p>
                         </div>
-                        <div>
+                        <div class="slide-up">
                             <h6>◎ Hobbies</h6>
                             <p>Coding, Blogging, Reading Tech News</p>
                         </div>
@@ -159,108 +166,129 @@
 
         <section class="nav-section" id="education" style="padding: 20px 0;">
             <div class="education-section">
-                <h1 class="gradient-text">Education</h1>
-                <div class="outer-border">
+                <h1 class="gradient-text slide-left">Education</h1>
+                <div class="outer-border slide-left">
                     <div class="symbols"></div>
                     <div class="inner-border">
                         <div class="box-guard"></div>
-                        <h2 class="inner-border-heading">Brainware University</h2>
+                        <h2 class="inner-border-heading slide-left">Brainware University</h2>
                         <hr>
-                        <p>B.Tech in Computer Science and Engineering specialization in Data Science</p>
-                        <p>2023 - Present</p>
+                        <p class="fade-in">B.Tech in Computer Science and Engineering specialization in Data Science</p>
+                        <p class="fade-in">2023 - Present</p>
                     </div>
                     <div class="symbols"></div>
                     <div class="inner-border">
                         <div class="box-guard"></div>
-                        <h2 class="inner-border-heading">Pancharul Srihari Vidyamandir</h2>
+                        <h2 class="inner-border-heading slide-left">Pancharul Srihari Vidyamandir</h2>
                         <hr>
-                        <p>Higher Secondary</p>
-                        <p>2020 - 2022</p>
+                        <p class="fade-in">Higher Secondary</p>
+                        <p class="fade-in">2020 - 2022</p>
                     </div>
                 </div>
             </div>
         </section>
         <section class="nav-section" id="skills" style="padding: 20px 0;">
             <div class="skills-section">
-                <h1 class="gradient-text">My Skills</h1>
-                <div class="skills-description">
-                    <div class="skill-card">
-                        <div class="skill-card-description">
-                            <h3 class="skill-category">Languages</h3>
-                            <hr>
-                            <ul class="skill-list">
-                                <li>C (Intermediate)</li>
-                                <li>Python (Intermediate)</li>
-                                <li>Java (Basics)</li>
-                                <li>JavaScript</li>
-                                <li>MySQL (Basics)</li>
-                            </ul>
+                <h1 class="gradient-text slide-left">My Skills</h1>
+                <div class="skills-panel">
+                    <div class="message-panel fade-in">
+                        <div class="display">
+                            <div class="front-camera"></div>
+                            <div class="message-area">
+                                <div class="messages" style="z-index: -1;">Hi, I am samiran Sasmal</div>
+                                <div class="messages" style="z-index: -2;">open to invent with you</div>
+                                <div class="messages" style="z-index: -3;">let's build smart together</div>
+                                <div class="messages" style="z-index: -4;">Code, Learn, Share</div>
+                            </div>
+                            <div class="text-bar">
+                                <p id="text-message"></p>
+                                <div class="text-send"><i class="fa-solid fa-paper-plane"></i></div>
+                            </div>
+                            <div class="bottom-bar"></div>
                         </div>
                     </div>
 
-                    <div class="skill-card">
-                        <div class="skill-card-description">
-                            <h3 class="skill-category">Frameworks</h3>
-                            <hr>
-                            <ul class="skill-list">
-                                <li>NumPy</li>
-                                <li>Pandas</li>
-                                <li>Flask (Basics)</li>
-                                <li>Java AWT</li>
-                            </ul>
+                    <div class="skills-description">
+                        <div class="skill-card glass">
+                            <div class="skill-card-description">
+                                <h3 class="skill-category slide-down">Languages</h3>
+                                <hr>
+                                <ul class="skill-list">
+                                    <li class="slide-up">C (Intermediate)</li>
+                                    <li class="slide-up">Python (Intermediate)</li>
+                                    <li class="slide-up">Java (Basics)</li>
+                                    <li class="slide-up">JavaScript (Basics)</li>
+                                    <li class="slide-up">MySQL (Basics)</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="skill-card">
-                        <div class="skill-card-description">
-                            <h3 class="skill-category">Tools</h3>
-                            <hr>
-                            <ul class="skill-list">
-                                <li>Bootstrap</li>
-                                <li>Git & GitHub</li>
-                            </ul>
+                        <div class="skill-card glass">
+                            <div class="skill-card-description">
+                                <h3 class="skill-category slide-down">Frameworks</h3>
+                                <hr>
+                                <ul class="skill-list">
+                                    <li class="slide-up">NumPy</li>
+                                    <li class="slide-up">Pandas</li>
+                                    <li class="slide-up">Flask (Basics)</li>
+                                    <li class="slide-up">Java AWT</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="skill-card glass">
+                            <div class="skill-card-description">
+                                <h3 class="skill-category slide-down">Tools</h3>
+                                <hr>
+                                <ul class="skill-list">
+                                    <li class="slide-up">Bootstrap</li>
+                                    <li class="slide-up">Git & GitHub</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
         </section>
         <section class="nav-section" id="projects" style="padding: 20px 0;">
             <div class="projects-section">
-                <h1 class="gradient-text">Projects</h1>
+                <h1 class="gradient-text slide-left">Projects</h1>
                 <div class="projects-description">
-                    <div class="project-card">
+                    <div class="project-card slide-up">
                         <div class="project-image">
                             <div class="card-image-guard-top"></div>
                             <div class="card-image-guard-bottom"></div>
-                            <img class="project-card-image" src="{{url_for('static', filename='images/chatbot.png')}}"
-                                alt="Project Screenshot">
+                            <img class="project-card-image lazy-img"
+                                data-src="{{url_for('static', filename='images/chatbot.png')}}" alt="Project Screenshot"
+                                loading="lazy">
                             <div class="project-icons">
                                 <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3>A simple GUI Chatbot</h3>
+                            <h3 class="slide-down">A simple GUI Chatbot</h3>
                             <hr>
-                            <p>Built using Java AWT</p>
-                            <a href="/projects/javaAwt.git" target="_blank">GitHub</a>
+                            <p class="slide-left">Built using Java AWT</p>
+                            <a href="{{ url_for('projects') }}?next={{ 'https://github.com/sasmal-samiran/javaAwt.git' | urlencode }}"
+                                target="_blank" class="slide-up">GitHub</a>
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card slide-up">
                         <div class="project-image">
                             <div class="card-image-guard-top"></div>
                             <div class="card-image-guard-bottom"></div>
-                            <img class="project-card-image"
-                                src="{{url_for('static', filename='images/youtube_clone.png')}}"
-                                alt="Project Screenshot">
+                            <img class="project-card-image lazy-img"
+                                data-src="{{url_for('static', filename='images/youtube_clone.png')}}"
+                                alt="Project Screenshot" loading="lazy">
                             <div class="project-icons">
                                 <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3>YouTube Clone</h3>
+                            <h3 class="slide-down">YouTube Clone</h3>
                             <hr>
-                            <p>Built using HTML, CSS, JavaScript</p>
-                            <a href="/projects/null" target="_blank">GitHub</a>
+                            <p class="slide-left">Built using HTML, CSS, JavaScript</p>
+                            <a href="{{ url_for('projects') }}" target="_blank" class="slide-up">GitHub</a>
                         </div>
                     </div>
 
@@ -274,15 +302,16 @@
 
 
         <section class="nav-section" id="resume">
-            <div class="resume-section">
+            <div class="resume-section fade-in">
                 <div class="resume-heading">
-                    <h1>&emsp14;Resume&emsp14;</h1>
+                    <h1 class="slide-left">&emsp14;Resume&emsp14;</h1>
                 </div>
                 <div class="resume-description">
                     <a class="resume-image"
                         href="https://www.canva.com/design/DAGipxqqBzI/ZvhUtReTH3-wzkbNvmgAJw/view?utm_content=DAGipxqqBzI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h37520911da"
                         target="_blank"></a>
-                    <a class="download-resume" href="{{ url_for('static', filename='docs/samiran_resume.pdf') }}"
+                    <a class="download-resume slide-up"
+                        href="{{ url_for('static', filename='docs/samiran_resume.pdf') }}"
                         download="samiran_resume.pdf">Download Resume</a>
                 </div>
             </div>
@@ -290,39 +319,50 @@
 
         <section class="hire-me">
             <div>
-                <h1>"Turning ideas into interactive experiences. Where code meets cognition."</h1>
-                <h5>Looking forward to meaningful collaborations that drive innovation and growth.</h5>
+                <h1 class="slide-left">"Turning ideas into interactive experiences. Where code meets cognition."</h1>
+                <h5 class="slide-left">Looking forward to meaningful collaborations that drive innovation and growth.
+                </h5>
             </div>
-            <a href="#contact" class="hire-button">Hire Me</a>
+            <a href="#contact" class="hire-button slide-up">Hire Me</a>
         </section>
 
         <section class="nav-section" id="contact" style="padding: 20px 0;">
             <div class="contact-section">
                 <h1 class="gradient-text">Contact</h1>
 
-                <div class="contact-credentials">
-                    <div class="address-map">
-                        <iframe
+                <div class="contact-credentials glass">
+                    <div class="address-map slide-up">
+                        <iframe class="zoom-in"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1945.3640717527408!2d88.49753714193756!3d22.731938996492755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8a23faf6ebbc3%3A0x87a1be2b67cde60b!2sBrainware%20University%20Gate!5e1!3m2!1sen!2sin!4v1746171535196!5m2!1sen!2sin"
                             allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <div class="round-bar fade-in">
+                            <div class="floating-message">
+                                <p>Message Me</p>
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+                            <div class="round-background"></div>
+                            <div class="round-border"></div>
+                        </div>
                     </div>
                     <div class="contact-description">
-                        <div class="contact-details">
-                            <div class="contact-element">
+                        <div class="contact-details fade-in">
+                            <div class="contact-shadow"></div>
+                            <div class="contact-element glass">
                                 <span><i class="fa-solid fa-location-dot"></i></span>
                                 <span>
                                     <p>Address</p>
                                     <p>Barasat, North 24 Parganas, 700124</p>
                                 </span>
                             </div>
-                            <div class="contact-element">
+                            <div class="contact-element glass">
                                 <span><i class="fa-solid fa-phone"></i></span>
                                 <span>
                                     <p>Call Me</p>
                                     <p>8710066414</p>
                                 </span>
                             </div>
-                            <div class="contact-element">
+                            <div class="contact-element glass">
                                 <span><i class="fa-solid fa-envelope"></i></span>
                                 <span>
                                     <p>Email Me</p>
@@ -330,9 +370,9 @@
                                 </span>
                             </div>
                         </div>
-                        <form class="contact-form" action="sendemail" method="post">
+                        <form class="contact-form steal-border slide-up" action="sendemail" method="post">
                             <div class="input-fields">
-                                <input type="text" placeholder="name" name="username" required>
+                                <input type="text" placeholder="Name" name="username" required>
                                 <input type="email" placeholder="Email" name="useremail" required>
                                 <select name="profession" required>
                                     <option value="Not Selected" selected>Select Your Profession</option>
@@ -350,10 +390,9 @@
                 </div>
             </div>
         </section>
-
         <section class="footer">
             <p> sasmal-samiran </p>
-            <div class="footer-social-links">
+            <div class="footer-social-links slide-left">
                 <a href="https://x.com/SasmalSamiran07" class="twitter">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
@@ -371,50 +410,22 @@
                 </a>
             </div>
         </section>
-
-        <!-- Alert messages -->
-        <div id="custom-alert" class="custom-alert hidden">
-            <div class="alert-icon"><i class="fa-solid fa-circle-info"></i></div>
-            <span id="custom-alert-message"></span>
-            <button onclick="closeAlert()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-        </div>
     </div>
+</div>
 
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-        var typed = new Typed('#element', {
-            strings: ['Second year student of Computer science and engineering', 'Pursuing B.Tech from Brainware University', 'passionate about machine learning and data analytics', 'and real-world problems using solving '],
-            typeSpeed: 40,
-            backSpeed: 5,
-            backDelay: 1000,
-            loop: true,
-            cursorChar: '🖋',
-        });
-    </script>
+{% endblock content %}
 
-    <script>
-        const message = "{{ get_flashed_messages()[0] if get_flashed_messages() else '' }}";
-        if (message) {
-            showCustomAlert(message);
-        }
-        function showCustomAlert(message, duration = 15000) {
-            const alertBox = document.getElementById('custom-alert');
-            const messageSpan = document.getElementById('custom-alert-message');
+{% block inlinejs %}
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+    var typed = new Typed('#element', {
+        strings: ['Second year student of Computer science and engineering', 'Pursuing B.Tech from Brainware University', 'Passionate about machine learning and data analytics', 'and solving real-world problems'],
+        typeSpeed: 40,
+        backSpeed: 5,
+        backDelay: 1000,
+        loop: true,
+        cursorChar: '🖋',
+    });
 
-            messageSpan.textContent = message;
-            alertBox.classList.remove('hidden');
-
-            setTimeout(() => {
-                alertBox.classList.add('hidden');
-            }, duration);
-        }
-
-        function closeAlert() {
-            document.getElementById('custom-alert').classList.add('hidden');
-        }
-    </script>
-    <script src="{{ url_for('static', filename='script.js')}}"></script>
-    {% endblock content %}
-</body>
-
-</html>
+</script>
+{% endblock inlinejs %}
