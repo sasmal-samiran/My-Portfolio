@@ -92,8 +92,10 @@
             </div>
         </div>
 
+        {% if not alreadyRegistered %}
         <div class="register-button"><a href="{{url_for('register')}}" target="_blank">Register</a></div>
         <div class="mobile-register-button"><a href="{{url_for('register')}}" target="_blank">Register</a></div>
+        {% endif %}
 
         <section class="about-section nav-section" id="about">
             <div class="about-pic">
@@ -171,135 +173,294 @@
                     <div class="symbols"></div>
                     <div class="inner-border">
                         <div class="box-guard"></div>
-                        <h2 class="inner-border-heading slide-left">Brainware University</h2>
+                        <div class="inner-border-heading slide-left">
+                            <img src="{{url_for('static', filename='images/bwu_logo.png')}}" alt="bwu">
+                            <h2>Bachelor of Technology in CSE - Data Science</h2>
+                        </div>
                         <hr>
-                        <p class="fade-in">B.Tech in Computer Science and Engineering specialization in Data Science</p>
-                        <p class="fade-in">2023 - Present</p>
+                        <p class="fade-in"><i class="fa-solid fa-building-columns"></i>&emsp13;&emsp13;BRAINWARE
+                            UNIVERSITY, Barasat</p>
+                        <p class="fade-in"><i class="fa-regular fa-calendar"></i>&emsp13;&emsp13;Aug, 2023 - Present</p>
                     </div>
                     <div class="symbols"></div>
                     <div class="inner-border">
                         <div class="box-guard"></div>
-                        <h2 class="inner-border-heading slide-left">Pancharul Srihari Vidyamandir</h2>
+                        <div class="inner-border-heading slide-left">
+                            <img src="{{url_for('static', filename='images/psvm.jpg')}}" alt="psvm">
+                            <h2>Higher Secondary - WBCHSE(XII)</h2>
+                        </div>
                         <hr>
-                        <p class="fade-in">Higher Secondary</p>
-                        <p class="fade-in">2020 - 2022</p>
+                        <p class="fade-in"><i class="fa-solid fa-building-columns"></i>&emsp13;&emsp13;PANCHARUL SRIHARI
+                            VIDYAMANDIR, Howrah</p>
+                        <p class="fade-in"><i class="fa-regular fa-calendar"></i>&emsp13;&emsp13;Jan, 2020 - Apr, 2022
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="nav-section" id="skills" style="padding: 20px 0;">
-            <div class="skills-section">
-                <h1 class="gradient-text slide-left">My Skills</h1>
-                <div class="skills-panel">
-                    <div class="message-panel fade-in">
-                        <div class="display">
-                            <div class="front-camera"></div>
-                            <div class="message-area">
-                                <div class="messages" style="z-index: -1;">Hi, I am samiran Sasmal</div>
-                                <div class="messages" style="z-index: -2;">open to invent with you</div>
-                                <div class="messages" style="z-index: -3;">let's build smart together</div>
-                                <div class="messages" style="z-index: -4;">Code, Learn, Share</div>
+        <div class="universe">
+            <section class="nav-section" id="skills" style="padding: 20px 0;">
+                <div class="skills-section">
+                    <h1 class="gradient-text slide-left">My Skills</h1>
+                    <div class="skills-panel">
+                        <div class="message-panel fade-in">
+                            <div class="display">
+                                <div class="front-camera"></div>
+                                <div class="message-area">
+                                    <div class="messages" style="z-index: -1;">Hi, I am samiran Sasmal</div>
+                                    <div class="messages" style="z-index: -2;">open to invent with you</div>
+                                    <div class="messages" style="z-index: -3;">let's build smart together</div>
+                                    <div class="messages" style="z-index: -4;">Code, Learn, Share</div>
+                                </div>
+                                <div class="text-bar">
+                                    <p id="text-message"></p>
+                                    <div class="text-send"><i class="fa-solid fa-paper-plane"></i></div>
+                                </div>
+                                <div class="bottom-bar"></div>
                             </div>
-                            <div class="text-bar">
-                                <p id="text-message"></p>
-                                <div class="text-send"><i class="fa-solid fa-paper-plane"></i></div>
+                        </div>
+
+                        <div class="skills-description">
+                            <div class="skill-card glass">
+                                <div class="skill-card-description">
+                                    <h3 class="skill-category slide-down">Languages</h3>
+                                    <hr>
+                                    <ul class="skill-list">
+                                        <li class="slide-up">C (Intermediate)</li>
+                                        <li class="slide-up">Python (Intermediate)</li>
+                                        <li class="slide-up">Java (Basics)</li>
+                                        <li class="slide-up">JavaScript (Basics)</li>
+                                        <li class="slide-up">MySQL (Basics)</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="bottom-bar"></div>
+
+                            <div class="skill-card glass">
+                                <div class="skill-card-description">
+                                    <h3 class="skill-category slide-down">Frameworks</h3>
+                                    <hr>
+                                    <ul class="skill-list">
+                                        <li class="slide-up">NumPy</li>
+                                        <li class="slide-up">Pandas</li>
+                                        <li class="slide-up">Flask (Basics)</li>
+                                        <li class="slide-up">Java AWT</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="skill-card glass">
+                                <div class="skill-card-description">
+                                    <h3 class="skill-category slide-down">Tools</h3>
+                                    <hr>
+                                    <ul class="skill-list">
+                                        <li class="slide-up">Bootstrap</li>
+                                        <li class="slide-up">Git & GitHub</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="skills-description">
-                        <div class="skill-card glass">
-                            <div class="skill-card-description">
-                                <h3 class="skill-category slide-down">Languages</h3>
-                                <hr>
-                                <ul class="skill-list">
-                                    <li class="slide-up">C (Intermediate)</li>
-                                    <li class="slide-up">Python (Intermediate)</li>
-                                    <li class="slide-up">Java (Basics)</li>
-                                    <li class="slide-up">JavaScript (Basics)</li>
-                                    <li class="slide-up">MySQL (Basics)</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="skill-card glass">
-                            <div class="skill-card-description">
-                                <h3 class="skill-category slide-down">Frameworks</h3>
-                                <hr>
-                                <ul class="skill-list">
-                                    <li class="slide-up">NumPy</li>
-                                    <li class="slide-up">Pandas</li>
-                                    <li class="slide-up">Flask (Basics)</li>
-                                    <li class="slide-up">Java AWT</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="skill-card glass">
-                            <div class="skill-card-description">
-                                <h3 class="skill-category slide-down">Tools</h3>
-                                <hr>
-                                <ul class="skill-list">
-                                    <li class="slide-up">Bootstrap</li>
-                                    <li class="slide-up">Git & GitHub</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            </section>
+            <div class="mobile-tech-icons">
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/c.png')}}" alt="c">
                 </div>
-        </section>
-        <section class="nav-section" id="projects" style="padding: 20px 0;">
-            <div class="projects-section">
-                <h1 class="gradient-text slide-left">Projects</h1>
-                <div class="projects-description">
-                    <div class="project-card slide-up">
-                        <div class="project-image">
-                            <div class="card-image-guard-top"></div>
-                            <div class="card-image-guard-bottom"></div>
-                            <img class="project-card-image lazy-img"
-                                data-src="{{url_for('static', filename='images/chatbot.png')}}" alt="Project Screenshot"
-                                loading="lazy">
-                            <div class="project-icons">
-                                <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="slide-down">A simple GUI Chatbot</h3>
-                            <hr>
-                            <p class="slide-left">Built using Java AWT</p>
-                            <a href="{{ url_for('projects') }}?next={{ 'https://github.com/sasmal-samiran/javaAwt.git' | urlencode }}"
-                                target="_blank" class="slide-up">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card slide-up">
-                        <div class="project-image">
-                            <div class="card-image-guard-top"></div>
-                            <div class="card-image-guard-bottom"></div>
-                            <img class="project-card-image lazy-img"
-                                data-src="{{url_for('static', filename='images/youtube_clone.png')}}"
-                                alt="Project Screenshot" loading="lazy">
-                            <div class="project-icons">
-                                <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="slide-down">YouTube Clone</h3>
-                            <hr>
-                            <p class="slide-left">Built using HTML, CSS, JavaScript</p>
-                            <a href="{{ url_for('projects') }}" target="_blank" class="slide-up">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="magnify-page">
-                        <div class="magnify-image"></div>
-                        <div class="close-image"><i class="fa-solid fa-magnifying-glass-minus"></i></div>
-                    </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/python.png')}}" alt="python">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/java.png')}}" alt="java">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/html5.png')}}" alt="html5">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/css3.png')}}" alt="css3">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/javascript.png')}}" alt="javascript">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/mysql.png')}}" alt="mysql" style="background-color: rgba(141, 193, 238, 0.582);">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/sqlite.png')}}" alt="sqlite">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/flask.png')}}" alt="flask">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/bootstrap.png')}}" alt="bootstrap">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/oracle.png')}}" alt="oracle">
+                </div>
+                <div class="mobile-tech-icon fade-in">
+                    <img src="{{url_for('static', filename='images/teck_stack/github.png')}}" alt="github">
                 </div>
             </div>
-        </section>
 
+            <section class="tech-stack-section">
+                <div class="tech-stack-container fade-in">
+                    <img src="{{url_for('static', filename = 'images/teck_screen.png')}}" alt="Teck Screen">
+
+                    <div class="tech-icons">
+                        <div class="tech-icon fade-in" style="--x:0; --y:4;">
+                            <img src="{{url_for('static', filename='images/teck_stack/python.png')}}" alt="python">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:8; --y:3;">
+                            <img src="{{url_for('static', filename='images/teck_stack/java.png')}}" alt="java">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:1; --y:1;">
+                            <img src="{{url_for('static', filename='images/teck_stack/html5.png')}}" alt="html5">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:-1; --y:6;">
+                            <img src="{{url_for('static', filename='images/teck_stack/css3.png')}}" alt="css3">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:10; --y:7;">
+                            <img src="{{url_for('static', filename='images/teck_stack/javascript.png')}}"
+                                alt="javascript">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:6; --y:2;">
+                            <img src="{{url_for('static', filename='images/teck_stack/mysql.png')}}" alt="mysql">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:3; --y:2;">
+                            <img src="{{url_for('static', filename='images/teck_stack/sqlite.png')}}" alt="sqlite">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:-2; --y:3;">
+                            <img src="{{url_for('static', filename='images/teck_stack/bootstrap.png')}}"
+                                alt="bootstrap">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:11; --y:3;">
+                            <img src="{{url_for('static', filename='images/teck_stack/oracle.png')}}" alt="oracle">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:10; --y:1;">
+                            <img src="{{url_for('static', filename='images/teck_stack/github.png')}}" alt="github">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:2; --y:4;">
+                            <img src="{{url_for('static', filename='images/teck_stack/c.png')}}" alt="c">
+                        </div>
+                        <div class="tech-icon fade-in" style="--x:12; --y:5;">
+                            <img src="{{url_for('static', filename='images/teck_stack/flask.png')}}" alt="flask">
+                        </div>
+                    </div>
+                    <div class="star" style="--s:2; --x:4; --y:0; --o:4"></div>
+                    <div class="star" style="--s:1; --x:5; --y:0; --o:9"></div>
+                    <div class="star" style="--s:2; --x:6; --y:1; --o:5"></div>
+                    <div class="star" style="--s:1; --x:8; --y:-2; --o:5"></div>
+                    <div class="star" style="--s:1; --x:0; --y:3; --o:8"></div>
+                    <div class="star" style="--s:1; --x:-2; --y:2; --o:5"></div>
+                    <div class="star" style="--s:2; --x:-1; --y:5; --o:3"></div>
+                    <div class="star" style="--s:0.5; --x:9; --y:3; --o:7"></div>
+                    <div class="star" style="--s:0.5; --x:4; --y:4; --o:7"></div>
+                    <div class="star" style="--s:1; --x:11; --y:2; --o:6"></div>
+                    <div class="star" style="--s:2; --x:12; --y:0; --o:3"></div>
+                    <div class="star" style="--s:1.5; --x:10; --y:1; --o:5"></div>
+                    <div class="star" style="--s:2; --x:12.5; --y:5.5; --o:3"></div>
+                    <div class="star" style="--s:1.5; --x:12.4; --y:4.9; --o:2"></div>
+                    <div class="star" style="--s:2.5; --x:2; --y:0; --o:0.5"></div>
+                    <div class="star" style="--s:2.5; --x:3; --y:1; --o:0.7"></div>
+                    <div class="star" style="--s:2; --x:14; --y:2; --o:0.6"></div>
+                    <div class="star" style="--s:1.5; --x:13; --y:1; --o:1"></div>
+                    <div class="star" style="--s:3; --x:0; --y:4; --o:1"></div>
+                    <div class="star" style="--s:2; --x:-1; --y:1; --o:5"></div>
+                    <div class="star" style="--s:1; --x:2; --y:-1; --o:3"></div>
+                    <div class="star" style="--s:2.5; --x:-3; --y:1; --o:1"></div>
+                    <div class="star" style="--s:2; --x:-4; --y:3; --o:2"></div>
+                    <div class="star" style="--s:2; --x:-5; --y:-2; --o:0.5"></div>
+                    <div class="star" style="--s:1; --x:-6; --y:-3; --o:0.5"></div>
+                    <div class="star" style="--s:1.5; --x:-3; --y:-3; --o:2"></div>
+                    <div class="star" style="--s:2; --x:0; --y:-4; --o:1"></div>
+                    <div class="star" style="--s:3; --x:10; --y:-4; --o:1"></div>
+                    <div class="star" style="--s:12; --x:8; --y:-3; --o:0.5"></div>
+                    <div class="star" style="--s:15; --x:8; --y:-5; --o:0.4"></div>
+                    <div class="star" style="--s:1; --x:2; --y:-1; --o:1"></div>
+                    <div class="star" style="--s:2.5; --x:-3; --y:1; --o:1"></div>
+                    <div class="star" style="--s:1.5; --x:-3; --y:-3; --o:0.5"></div>
+                    <div class="star" style="--s:2; --x:0; --y:-4; --o:1"></div>
+                    <div class="star" style="--s:2; --x:-4; --y:-4; --o:1"></div>
+                    <div class="star" style="--s:1.5; --x:3; --y:-5; --o:2"></div>
+                    <div class="star" style="--s:3; --x:6; --y:-3; --o:3"></div>
+                    <div class="star" style="--s:3; --x:4; --y:-2; --o:4"></div>
+                    <div class="star" style="--s:2.5; --x:4; --y:-2; --o:2"></div>
+                    <div class="star" style="--s:5; --x:4; --y:-2.5; --o:2"></div>
+                    <div class="star" style="--s:10; --x:4; --y:-2.7; --o:1"></div>
+                    <div class="star" style="--s:11; --x:3; --y:-2.97; --o:0.5"></div>
+                    <div class="star" style="--s:9; --x:2; --y:-2.9; --o:1"></div>
+                    <div class="star" style="--s:5; --x:1; --y:-4; --o:2"></div>
+                    <div class="star" style="--s:6; --x:0; --y:-5.5; --o:3"></div>
+                    <div class="star" style="--s:7; --x:0; --y:-6.5; --o:1"></div>
+                    <div class="star" style="--s:8; --x:1; --y:-9.5; --o:0.5"></div>
+                    <div class="star" style="--s:9; --x:-1; --y:-10.5; --o:0.4"></div>
+                    <div class="star" style="--s:10; --x:7; --y:-11.5; --o:0.3"></div>
+                    <div class="star" style="--s:11; --x:9; --y:-12.5; --o:1"></div>
+                    <div class="star" style="--s:11; --x:9; --y:-9.5; --o:0.9"></div>
+                    <div class="star" style="--s:12; --x:10; --y:-8.5; --o:0.8"></div>
+                    <div class="star" style="--s:13; --x:11; --y:-15.5; --o:0.7"></div>
+                    <div class="star" style="--s:20; --x:6; --y:-12.5; --o:0.5"></div>
+                    <div class="star" style="--s:25; --x:10; --y:-15.5; --o:0.2"></div>
+                    <div class="star" style="--s:2; --x:3; --y:-2; --o:10;"></div>
+
+                    <div class="podium top"></div>
+                    <div class="podium bottom">
+                        <div class="podium-bottom-top"></div>
+                        <div class="podium-bottom-circle" style="--i:1; --j:1"></div>
+                        <div class="podium-bottom-circle" style="--i:1.2; --j:2"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="nav-section" id="projects" style="padding: 20px 0;">
+                <div class="projects-section">
+                    <h1 class="gradient-text slide-left">Projects</h1>
+                    <div class="projects-description">
+                        <div class="project-card slide-up">
+                            <div class="project-image">
+                                <div class="card-image-guard-top"></div>
+                                <div class="card-image-guard-bottom"></div>
+                                <img class="project-card-image lazy-img"
+                                    data-src="{{url_for('static', filename='images/chatbot.png')}}"
+                                    alt="Project Screenshot" loading="lazy">
+                                <div class="project-icons">
+                                    <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="slide-down">A simple GUI Chatbot</h3>
+                                <hr>
+                                <p class="slide-left">Built using Java AWT</p>
+                                <a href="{{ url_for('projects') }}?next={{ 'https://github.com/sasmal-samiran/javaAwt.git' | urlencode }}"
+                                    target="_blank" class="slide-up">GitHub</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card slide-up">
+                            <div class="project-image">
+                                <div class="card-image-guard-top"></div>
+                                <div class="card-image-guard-bottom"></div>
+                                <img class="project-card-image lazy-img"
+                                    data-src="{{url_for('static', filename='images/youtube_clone.png')}}"
+                                    alt="Project Screenshot" loading="lazy">
+                                <div class="project-icons">
+                                    <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="slide-down">YouTube Clone</h3>
+                                <hr>
+                                <p class="slide-left">Built using HTML, CSS, JavaScript</p>
+                                <a href="{{ url_for('projects') }}" target="_blank" class="slide-up">GitHub</a>
+                            </div>
+                        </div>
+
+                        <div class="magnify-page">
+                            <div class="magnify-image"></div>
+                            <div class="close-image"><i class="fa-solid fa-magnifying-glass-minus"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <section class="nav-section" id="resume">
             <div class="resume-section fade-in">
@@ -390,25 +551,47 @@
                 </div>
             </div>
         </section>
-        <section class="footer">
-            <p> sasmal-samiran </p>
-            <div class="footer-social-links slide-left">
-                <a href="https://x.com/SasmalSamiran07" class="twitter">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100073743833052&mibextid=ZbWKwL" class="facebook">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/sasmal.samiran/?hl=en" class="instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://github.com/sasmal-samiran" class="github">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/samiran-sasmal-441206275/" class="linkedin">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
+        <section class="footer fade-in">
+            <div class="top-footer">
+                <div class="left-footer">
+                    <div class="footer-name"><span>S</span>amiran Sasmal</div>
+                    <div class="footer-social-links">
+                        <a href="https://x.com/SasmalSamiran07" class="twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100073743833052&mibextid=ZbWKwL"
+                            class="facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sasmal.samiran/?hl=en" class="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/sasmal-samiran" class="github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/samiran-sasmal-441206275/" class="linkedin">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p>Aspiring Data Scientist</p>
+                </div>
+                <div class="right-footer">
+                    <p>Quick Links</p>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Me</a>
+                    <a href="#education">Education</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#resume">Resume</a>
+                    <a href="#contact">Contact Me</a>
+                </div>
+
             </div>
+            <div style="border-top: 0.5px solid rgba(174, 171, 171, 0.575); width: 90%;">
+                <div class="bottom-footer">
+                    <p>© Samiran Sasmal. All rights reserved.</p>
+                    <p>Designed & built With ❤️</p>
+                </div>
         </section>
     </div>
 </div>

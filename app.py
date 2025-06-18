@@ -20,8 +20,10 @@ def is_logged_in():
 
 @app.route('/')
 def index():
+    tech_stack = ['Python', 'Flask', 'JavaScript', 'HTML5', 'CSS3', 'PostgreSQL', 'Docker']
     alertMessage = request.args.get('alertMessage')
-    return render_template('index.html', alertMessage=alertMessage)
+    alreadyRegistered = is_registered()
+    return render_template('index.html', alertMessage=alertMessage, tech_stack=tech_stack, alreadyRegistered=alreadyRegistered)
 
 @app.route('/login')
 def login():

@@ -319,31 +319,36 @@ function contactAnimation() {
     }, 1000);
 }
 
-
 const animateScreen = document.querySelectorAll(".message-panel, .contact-details");
 
 const animateScreenObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
+        if (!entry.isIntersecting) return;
 
+        const el = entry.target;
+
+        requestAnimationFrame(() => {
             if (el.classList.contains("message-panel")) {
-                mobileAnimation();
-                startType();
-                messages.forEach(message => {
-                    message.style.opacity = '0';
-                });
+                setTimeout(() => {
+                    mobileAnimation();
+                    startType();
+                    messages.forEach(message => {
+                        message.style.opacity = '0';
+                    });
+                }, 50);
             }
 
             if (el.classList.contains("contact-details")) {
                 contactAnimation();
-                setInterval(() => {
-                    contactAnimation();
-                }, 10000);
+
+                if (!el.dataset.animationStarted) {
+                    el.dataset.animationStarted = "true";
+                    setInterval(contactAnimation, 10000);
+                }
             }
 
             observer.unobserve(el);
-        }
+        });
     });
 }, {
     threshold: 0.1,
@@ -351,3 +356,31 @@ const animateScreenObserver = new IntersectionObserver((entries, observer) => {
 });
 
 animateScreen.forEach(el => animateScreenObserver.observe(el));
+
+// teck stack 
+function animateGradient() {
+    const podium = document.querySelector('.podium');
+    let start = null;
+    const duration = 1500;
+
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        let progress = (timestamp - start) / duration;
+
+        if (progress > 1) progress = 1;
+
+        const percent = 100 - (80 * progress);
+
+        podium.style.background = `linear-gradient(to bottom, transparent ${percent}%, rgba(85, 148, 244, 0.5))`;
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
+
+setInterval(() => {
+    animateGradient();
+}, 2500);
