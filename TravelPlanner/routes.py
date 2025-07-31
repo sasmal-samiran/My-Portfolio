@@ -15,7 +15,7 @@ def home():
 def dashboard():
     return render_template('dashboard.html')
 
-@travelplanner.route('/travelplanner', methods=["POST"])
+@travelplanner.route('/weather', methods=["POST"])
 def weatherReport():
     data = request.get_json()
     city = data.get('city')
