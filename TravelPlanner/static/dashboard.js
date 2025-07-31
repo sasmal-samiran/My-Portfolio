@@ -1,6 +1,6 @@
 /***DOM ELEMENTS***/
 // Backend API
-BACKEND_API = 'https://codecraftedbysam.onrender.com/travelplanner/weather';
+BACKEND_API = 'https://codecraftedbysam.onrender.com/travelplanner';
 
 const inputCity = document.querySelector('#input-city');
 const searchButton = document.querySelector('#search-button');
