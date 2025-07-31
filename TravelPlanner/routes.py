@@ -3,8 +3,8 @@ import TravelPlanner.services as services
 
 travelplanner = Blueprint('travelplanner', 
     __name__, 
-    template_folder='templates', 
-    static_folder='static',  
+    template_folder='TravelPlanner/templates', 
+    static_folder='TravelPlanner/static',  
     url_prefix='/travelplanner')
 
 @travelplanner.route('/')
