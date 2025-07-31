@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 instance/
 .env
+TravelPlanner/.env
+TravelPlanner/__pycache__
+TravelPlanner/travelPlannerVenv

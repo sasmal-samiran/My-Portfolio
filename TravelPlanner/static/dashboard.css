@@ -1,0 +1,314 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0 50px;
+    background: url(images/background-image.jpg) center fixed;
+    background-size: cover;    
+    font-family:Arial, Helvetica, sans-serif;
+}
+.hr-line {
+    width: 100%;
+    margin: 10px 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.329);
+}
+.dashboard {
+    margin: 50px 0;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+}
+.dashboard .dashboard-title {
+    font-size: 50px;
+    font-weight: bolder;
+    color: rgb(47, 0, 255);
+    padding: 20px;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+section {
+    padding: 20px 50px;
+}
+.data-div {
+    flex-direction: column;
+    width: 100%;
+}
+.hidden-div {
+    display: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+}
+.section-heading {
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 0 0 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.user-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.user-input .input-city,
+.user-input .input-dates,
+.user-input .input-range {
+    margin: 5px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(252, 252, 252, 0.507);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.user-input .input-city #input-city {
+    border: none;
+    background: transparent;
+}
+.user-input .input-city #input-city:focus {
+    outline: none;
+}
+
+.user-input .input-dates {
+    display: flex;
+    justify-content: space-between;
+}
+.user-input .input-dates #start-date,
+.user-input .input-dates #end-date {
+    width: 17px;
+    height: 13.5px;
+}
+.user-input .input-range div {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+.user-input .input-range .range-value{
+    width: 17%;
+    display: flex;
+}
+.user-input .input-range .range-value span {
+    flex: 1;
+    text-align: end;
+}
+
+.user-input #search-button {
+    margin: 10px 15px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid blue;
+    background-color: rgb(0, 187, 255);
+    font-weight: bold;
+}
+
+.weather-category{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.current-weather,
+.weather-parameters{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    min-width: 300px;
+    padding: 20px 10px 10px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: rgba(118, 241, 254, 0.524);
+}
+.current-weather p {
+    margin: 0 10px 5px;
+    text-align: center;
+    font-size: 25px;
+}
+.current-weather #current-time {
+    margin: 0;
+    font-size: smaller;
+    text-align: end;
+}
+.current-weather .details {
+    margin: 10px 0;
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    justify-content: space-around;
+}
+.current-weather .weather-icons{
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+.current-weather img {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+.current-weather #temperature{
+    font-size: 40px;
+}
+.current-weather #weathercode{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.current-weather .weather-details {
+    padding: 5px 15px;
+}
+
+.weather-parameters .parameter-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-parameters .parameter-card span i {
+    width: 30px;
+}
+
+.weather-parameters .parameter-card span i img {
+    height: 16px;
+    padding: 0 7px;
+    mix-blend-mode: multiply;
+}
+
+.attractions-category {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0;
+    border-radius: 10px;
+    background-color: rgba(240, 248, 255, 0.733);
+}
+.attraction-heading {
+    display: flex;
+    align-items: center;
+}
+.attractions-category-title {
+    font-size: 25px;
+    font-weight: bolder;
+    margin: 10px;
+    font-family: cursive;
+}
+.attractions .attractions-cards {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    font-size: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.545);
+}
+
+.attractions .attractions-cards:hover .attractions-image #image {
+    transform: scale(1.05);
+}
+
+.attractions .attractions-image {
+    height: 30%;
+    border-radius: 10px 10px 0 0;
+    background-color: bisque;
+    overflow: hidden;
+}
+
+.attractions .attractions-image #image {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease-in;
+}
+
+.attractions .historical_places #image {
+    background: url(https://thumbs.dreamstime.com/b/world-landmarks-photo-collage-isolated-white-background-travel-tourism-study-around-concept-famous-monuments-panoramic-349781824.jpg);
+    background-size: cover;
+}
+.attractions .natural_places #image {
+    background: url(https://gitc.travel/wp-content/uploads/2020/03/banner-v1.1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.attractions .religious_places #image {
+    background: url(https://psychicmediumdaksh.com/wp-content/uploads/2024/09/Most-Spiritual-Places-in-India.png);
+    background-size: cover;
+}
+.attractions .entertainment_places #image {
+    background: url(https://www.shutterstock.com/image-vector/cinema-background-movie-projector-film-600nw-1880122036.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.attractions .food_places #image {
+    background: url(https://static.vecteezy.com/system/resources/previews/039/070/565/non_2x/collage-a-set-of-food-dishes-and-drinks-assortment-of-prepared-dishes-in-plates-photo.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.attractions .shopping_places #image {
+    background: url(https://t3.ftcdn.net/jpg/09/47/24/02/360_F_947240266_vILwmKGTvRMeF5qUI3JdmafagYMSBj69.jpg);
+    background-size: cover;
+}
+
+.attractions .card-details {
+    flex: 1;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+
+.attractions .card-details #name {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: 24px;
+} 
+
+.attractions .card-details .heading {
+    display: flex;
+}
+
+.attractions .card-details .heading h4{
+    margin: 0;
+    width: 80px;
+}
+
+.attractions .card-details .heading p {
+    margin: 0 5px 5px;
+    flex: 1;
+}
+
+.attractions .card-details #description {
+    margin: 5px 0;
+    text-align: justify;
+}
+
+.attractions .attractions-wikipedia {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attractions #wikipedia-link {
+    text-decoration: none;
+    color: aliceblue;
+    background-color: rgb(0, 72, 255);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+@media (max-width: 520px){
+    body{
+        padding: 0;
+    }
+    section {
+        padding: 10px;
+    }
+}

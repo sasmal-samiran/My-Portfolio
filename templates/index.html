@@ -419,18 +419,19 @@
                                 <div class="card-image-guard-top"></div>
                                 <div class="card-image-guard-bottom"></div>
                                 <img class="project-card-image lazy-img"
-                                    data-src="{{url_for('static', filename='images/chatbot.png')}}"
+                                    data-src="{{url_for('static', filename='images/travelplanner.png')}}"
                                     alt="Project Screenshot" loading="lazy">
                                 <div class="project-icons">
                                     <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3 class="slide-down">A simple GUI Chatbot</h3>
+                                <h3 class="slide-down">Travel Planner</h3>
                                 <hr>
-                                <p class="slide-left">Built using Java AWT</p>
+                                <p class="slide-left">Built using Python and Open Source APIs</p>
                                 <a href="{{ url_for('projects') }}?next={{ 'https://github.com/sasmal-samiran/javaAwt.git' | urlencode }}"
-                                    target="_blank" class="slide-up">GitHub</a>
+                                    target="_blank" class="slide-up">GitHub</a>&emsp;|&emsp; 
+                                <a href="{{url_for('travelplanner.home')}}">Live Demo</a>
                             </div>
                         </div>
 
@@ -448,7 +449,7 @@
                             <div class="project-content">
                                 <h3 class="slide-down">YouTube Clone</h3>
                                 <hr>
-                                <p class="slide-left">Built using HTML, CSS, JavaScript</p>
+                                <p class="slide-left">Built using HTML, CSS, JavaScript and Python</p>
                                 <a href="{{ url_for('projects') }}" target="_blank" class="slide-up">GitHub</a>
                             </div>
                         </div>

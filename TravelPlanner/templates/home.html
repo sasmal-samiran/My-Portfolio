@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block css %}
+    <link rel="stylesheet" href="{{url_for('travelplanner.static', filename='home.css')}}">
+    {% endblock css %}
+    {% block js %}     {% endblock js %}
+</head>
+{% block content %}
+<body>
+    <div>
+        <h1>Plan Your Trip — and enjoy the Adventure!</h1>
+    </div>
+    <div class="input-form">
+        <form action="{{url_for('travelplanner.dashboard')}}" method="get">
+            <button type="submit">Start Planning</button>
+        </form>
+    </div>
+</body>
+{% endblock content %}
+</html>

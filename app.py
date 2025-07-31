@@ -3,11 +3,18 @@ from email.message import EmailMessage
 from dotenv import load_dotenv
 import os, smtplib, logging
 
+from flask_cors import CORS
+from TravelPlanner.routes import travelplanner
+
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
+
+app.register_blueprint(travelplanner)
+
+CORS(app)
 
 # Setup logging
 app.logger.setLevel(logging.INFO)
@@ -116,6 +123,10 @@ def projects():
         return redirect(url_for('login', next=next_page))
     
     return redirect(next_page)
+
+# @app.route('/travelplanner')
+# def travelPlanner():
+#     return render_template('')
 
 @app.route('/sendemail/', methods=['GET', 'POST'])
 def sendEmail():

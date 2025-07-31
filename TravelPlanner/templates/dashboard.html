@@ -1,0 +1,176 @@
+{% extends 'home.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('travelplanner.static', filename='dashboard.css')}}">
+{% endblock css %}
+{% block js %}
+<script defer src="{{ url_for('travelplanner.static', filename='dashboard.js') }}"></script>
+{% endblock js %}
+
+{% block content%}
+<div class="dashboard">
+    <div class="dashboard-title">Your Travel Planner</div>
+    <hr>
+    <div class="user-input">
+        <div class="input-city">
+            <input type="text" id="input-city" placeholder="Enter City to Travel">
+        </div>
+        <!-- <div class="input-dates">
+            <div>
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date">
+            </div>
+            <div>
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date">
+            </div>
+        </div> -->
+        <div class="input-range">
+            <div>
+                <label for="range-input">Select Range</label>
+                <input id="range-input" type="range" value="5" min="0" max="20" step="0.5" />
+                <div class="range-value"><span id="range-value">5</span>km</div>
+            </div>
+        </div>
+        <button id="search-button">Start Planning</button>
+    </div>
+    <hr>
+    <section class="weather">
+        <div class="section-heading" id="city-name"></div>
+        <div class="weather-category">
+            <div class="current-weather">
+                <p>Current Weather</p>
+                <div class="data-div">
+                    <p id="current-time"></p>
+                    <div class="hr-line"></div>
+                    <div id="is-day"></div>
+                    <div class="details">
+                        <div class="weather-icons">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/1D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/2D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/3D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/4D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/5D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/6D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/7D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/8D.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/1N.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/2N.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/3N.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/4N.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/5N.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/6N.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/7N.gif') }}" alt="" id="weather-icon">
+                            <img src="{{ url_for('travelplanner.static', filename='images/sky/8N.gif') }}" alt="" id="weather-icon">
+                        </div>
+                        <div>
+                            <div id="temperature"></div>
+                            <div id="apparent-temperature"></div>
+                            <div id="weathercode"></div>
+                        </div>
+                    </div>
+                    <div class="weather-details"></div>
+                </div>
+                <div class="hidden-div"></div>
+            </div>
+            <div class="weather-parameters">
+                <div class="data-div">
+                    <div class="parameter-card">
+                        <span><i class="fa-solid fa-temperature-high"></i>Temperature (High/Low)</span>
+                        <span class="parameters temperature"></span>
+                    </div>
+                    <div class="hr-line"></div>
+                    <div class="parameter-card">
+                        <span><i><img src="{{url_for('travelplanner.static', filename='images/parameters/precipitation.png')}}"
+                                    alt=""></i>Precipitation</span>
+                        <span class="parameters precipitation"></span>
+                    </div>
+                    <div class="hr-line"></div>
+                    <div class="parameter-card">
+                        <span><i><img src="{{url_for('travelplanner.static', filename='images/parameters/rain.png')}}"
+                                    alt=""></i>Rain</span>
+                        <span class="parameters rain"></span>
+                    </div>
+                    <div class="hr-line"></div>
+                    <div class="parameter-card">
+                        <span><i><img src="{{url_for('travelplanner.static', filename='images/parameters/dew.png')}}" alt=""></i>Dew
+                            Point</span>
+                        <span class="parameters dew"></span>
+                    </div>
+                    <div class="hr-line"></div>
+                    <div class="parameter-card">
+                        <span><i><img src="{{url_for('travelplanner.static', filename='images/parameters/humidity.png')}}"
+                                    alt=""></i>Humidity</span>
+                        <span class="parameters humidity"></span>
+                    </div>
+                    <div class="hr-line"></div>
+                    <div class="parameter-card">
+                        <span><i><img src="{{url_for('travelplanner.static', filename='images/parameters/snow.png')}}"
+                                    alt=""></i>Snowfall</span>
+                        <span class="parameters snow"></span>
+                    </div>
+                    <div class="hr-line"></div>
+                    <div class="parameter-card">
+                        <span><i class="fa-solid fa-eye"></i>Visibilty</span>
+                        <span class="parameters visibility"></span>
+                    </div>
+                    <div class="hr-line"></div>
+                </div>
+                <div class="hidden-div"></div>
+            </div>
+        </div>
+
+    </section>
+    <section class="attractions">
+        <div class="section-heading"><img src="{{url_for('travelplanner.static', filename='images/attractions.png')}}" alt=""
+                height="40px" style="margin: 0 15px;">TOP ATTRACTIONS</div>
+        <div class="hr-line"></div>
+        <div class="attraction-heading">
+            <img src="{{url_for('travelplanner.static', filename='images/historic.png')}}" alt="" height="35px"
+                style="margin: 0 10px;">
+            <div class="attractions-category-title">Historical & Cultural</div>
+        </div>
+        <div class="attractions-category historical_places"></div>
+
+        <div class="hr-line"></div>
+        <div class="attraction-heading">
+            <img src="{{url_for('travelplanner.static', filename='images/nature.png')}}" alt="" height="35px"
+                style="margin: 0 10px;">
+            <div class="attractions-category-title">Nature & Outdoors</div>
+        </div>
+        <div class="attractions-category natural_places"></div>
+
+        <div class="hr-line"></div>
+        <div class="attraction-heading">
+            <img src="{{url_for('travelplanner.static', filename='images/religion.png')}}" alt="" height="35px"
+                style="margin: 0 10px;">
+            <div class="attractions-category-title">Religious & Spirituals</div>
+        </div>
+        <div class="attractions-category religious_places"></div>
+
+        <div class="hr-line"></div>
+        <div class="attraction-heading">
+            <img src="{{url_for('travelplanner.static', filename='images/entertainment.png')}}" alt="" height="35px"
+                style="margin: 0 10px;">
+            <div class="attractions-category-title">Entertainment & Leisure</div>
+        </div>
+        <div class="attractions-category entertainment_places"></div>
+
+        <div class="hr-line"></div>
+        <div class="attraction-heading">
+            <img src="{{url_for('travelplanner.static', filename='images/food.png')}}" alt="" height="35px"
+                style="margin: 0 10px;">
+            <div class="attractions-category-title">Food & Drinks</div>
+        </div>
+        <div class="attractions-category food_places"></div>
+
+        <div class="hr-line"></div>
+        <div class="attraction-heading">
+            <img src="{{url_for('travelplanner.static', filename='images/shopping.png')}}" alt="" height="35px"
+                style="margin: 0 10px;">
+            <div class="attractions-category-title">Shoppings</div>
+        </div>
+        <div class="attractions-category shopping_places"></div>
+    </section>
+</div>
+{% endblock content %}
