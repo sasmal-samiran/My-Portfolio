@@ -18,9 +18,16 @@ def dashboard():
 
 @travelplanner.route('/weather', methods=["POST"])
 def weatherReport():
-    data = request.get_json()
-    city = data.get('city')
-    radius = data.get('radius')
+    if request.is_json:
+        data = request.get_json()
+        city = data.get('city')
+        radius = data.get('radius', 5000)
+    elif request.form:
+        city = request.form.get('city')
+        radius = request.form.get('radius', 5000)
+    else:
+        return jsonify({"error": "Unsupported Content-Type"}), 415
+        
     if city == '':
         coordinates = {
             'name': "Your Location" if (data.get('currentLat') != 28.6139) else 'New Delhi',
