@@ -14,7 +14,7 @@ CORS(app)
 app.config['SECRET_KEY'] = os.urandom(24)
 
 from TravelPlanner.routes import travelplanner
-app.register_blueprint(travelplanner)
+app.register_blueprint(travelplanner, url_prefix='/travelplanner')
 
 # Setup logging
 app.logger.setLevel(logging.INFO)

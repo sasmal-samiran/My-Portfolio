@@ -1,13 +1,14 @@
 from flask import Blueprint, request, jsonify, render_template, url_for
 import TravelPlanner.services as services
 
-travelplanner = Blueprint('travelplanner', 
+travelplanner = Blueprint(
+    'travelplanner', 
     __name__, 
-    template_folder='TravelPlanner/templates', 
-    static_folder='TravelPlanner/static',  
-    url_prefix='/travelplanner')
+    template_folder='templates',
+    static_folder='static'
+)
 
-@travelplanner.route('/', methods=['POST'])
+@travelplanner.route('/')
 def home():
     return render_template('home.html')
 
