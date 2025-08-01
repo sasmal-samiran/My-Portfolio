@@ -77,7 +77,7 @@ function createAttractionCard(data) {
                 <h4>Location</h4>
                 <p id="location">${data.location || 'Not available'}</p>
             </div>
-            <p id="description">${data.description || 'No description available.'}</p>
+            <p id="description">${data.description}</p>
         </div>
         <div class="attractions-wikipedia">
             <a href="${data.wikipedia || '#'}" id="wikipedia-link" target="_blank">View Details</a>

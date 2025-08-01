@@ -303,7 +303,7 @@ def getAttractions(lat, lon, radius):
                         'xid': place['properties']['xid'],
                         'name': place['properties']['name'],
                         'distance': round(place['properties']['dist'] / 1000, 2),
-                        'category': place['properties']['rate'],
+                        'category': place['properties']['category'],
                     })
         
         return result, 200
