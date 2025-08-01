@@ -7,7 +7,7 @@ travelplanner = Blueprint('travelplanner',
     static_folder='TravelPlanner/static',  
     url_prefix='/travelplanner')
 
-@travelplanner.route('/', methods=['GET'])
+@travelplanner.route('/', methods=['POST'])
 def home():
     return render_template('home.html')
 
