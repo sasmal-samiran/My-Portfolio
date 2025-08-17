@@ -228,9 +228,9 @@
                                     <ul class="skill-list">
                                         <li class="slide-up">C (Intermediate)</li>
                                         <li class="slide-up">Python (Intermediate)</li>
+                                        <li class="slide-up">MySQL</li>
                                         <li class="slide-up">Java (Basics)</li>
                                         <li class="slide-up">JavaScript (Basics)</li>
-                                        <li class="slide-up">MySQL (Basics)</li>
                                     </ul>
                                 </div>
                             </div>
@@ -242,8 +242,9 @@
                                     <ul class="skill-list">
                                         <li class="slide-up">NumPy</li>
                                         <li class="slide-up">Pandas</li>
+                                        <li class="slide-up">Matplotlib</li>
                                         <li class="slide-up">Flask (Basics)</li>
-                                        <li class="slide-up">Java AWT</li>
+                                        <li class="slide-up">Java AWT (Basics)</li>
                                     </ul>
                                 </div>
                             </div>
@@ -253,6 +254,7 @@
                                     <h3 class="skill-category slide-down">Tools</h3>
                                     <hr>
                                     <ul class="skill-list">
+                                        <li class="slide-up">PowerBI</li>
                                         <li class="slide-up">Bootstrap</li>
                                         <li class="slide-up">Git & GitHub</li>
                                     </ul>
@@ -414,6 +416,29 @@
                 <div class="projects-section">
                     <h1 class="gradient-text slide-left">Projects</h1>
                     <div class="projects-description">
+                        <div class="project-card slide-up">
+                            <div class="project-image">
+                                <div class="card-image-guard-top"></div>
+                                <div class="card-image-guard-bottom"></div>
+                                <img class="project-card-image lazy-img" style="height: 50%;"
+                                    data-src="{{url_for('static', filename='images/powerBI_dashboard.png')}}"
+                                    alt="Project Screenshot" loading="lazy">
+                                <img class="project-card-image lazy-img" style="height: 50%;"
+                                    data-src="{{url_for('static', filename='images/powerBI_dashboard2.png')}}"
+                                    alt="Project Screenshot" loading="lazy">
+                                <div class="project-icons">
+                                    <i class="fa-solid fa-magnifying-glass-plus magnify"></i>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="slide-down">Online Store Customer Insights Dashboard</h3>
+                                <hr>
+                                <p class="slide-left">Built using Python and Power BI</p>
+                                <a href="{{ url_for('projects') }}?next={{ 'https://github.com/sasmal-samiran/Data-Analysis.git' | urlencode }}"
+                                    target="_blank" class="slide-up">GitHub</a>
+                            </div>
+                        </div>
+
                         <div class="project-card slide-up">
                             <div class="project-image">
                                 <div class="card-image-guard-top"></div>

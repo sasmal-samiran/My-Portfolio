@@ -116,11 +116,11 @@ def projects():
         return '''<h1>This Project is Not Available!</h1>
                 <h1>Check other Projects</h1>'''
     
-    if not is_registered():
-        return redirect(url_for('register'))
+    # if not is_registered():
+    #     return redirect(url_for('register'))
 
-    if not is_logged_in():
-        return redirect(url_for('login', next=next_page))
+    # if not is_logged_in():
+    #     return redirect(url_for('login', next=next_page))
     
     return redirect(next_page)
 

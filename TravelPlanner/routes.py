@@ -28,7 +28,7 @@ def weatherReport():
     else:
         return jsonify({"error": "Unsupported Content-Type"}), 415
         
-    if city == '':
+    if city and city.strip() == '':
         coordinates = {
             'name': "Your Location" if (data.get('currentLat') != 28.6139) else 'New Delhi',
             'type': '',
