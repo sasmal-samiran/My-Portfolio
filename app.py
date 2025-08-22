@@ -6,22 +6,68 @@ import os, smtplib, logging
 from flask_cors import CORS
 from flask_talisman import Talisman
 
+from TravelPlanner.routes import travelplanner
+
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
 
+app.register_blueprint(travelplanner, url_prefix='/travelplanner')
+
+csp = {
+    'default-src': [
+        "'self'"
+    ],
+    'script-src': [
+        "'self'",
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com',
+        'https://unpkg.com',
+        "'unsafe-inline'"
+    ],
+    'style-src': [
+        "'self'",
+        'https://fonts.googleapis.com',
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com',
+        "'unsafe-inline'"
+    ],
+    'font-src': [
+        "'self'",
+        'https://fonts.gstatic.com',
+        'https://fonts.googleapis.com',
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com'
+    ],
+    'img-src': [
+        "'self'",
+        "https://*.google.com",
+        "https://upload.wikimedia.org",
+        "https://www.svgrepo.com",
+        "https://media.licdn.com", 
+        'https://cdnjs.cloudflare.com',
+        "https://cdn-icons-png.freepik.com",
+        "data:"
+    ],
+    'frame-src': [
+        "'self'",
+        "https://www.google.com"
+    ]
+}
+
 talisman = Talisman(
     app,
-    content_security_policy=None,  # start with None if you load external JS/CSS
-    force_https=True               # redirect all http → https
+    content_security_policy=csp,
+    force_https=True,
+    strict_transport_security=True,
+    session_cookie_secure=True,
+    session_cookie_http_only=True
 )
 
-app.config['SECRET_KEY'] = os.urandom(24)
 
-from TravelPlanner.routes import travelplanner
-app.register_blueprint(travelplanner, url_prefix='/travelplanner')
+app.config['SECRET_KEY'] = os.urandom(24)
 
 # Setup logging
 app.logger.setLevel(logging.INFO)
