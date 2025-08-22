@@ -24,8 +24,7 @@ csp = {
         "'self'",
         'https://cdn.jsdelivr.net',
         'https://cdnjs.cloudflare.com',
-        'https://unpkg.com',
-        "'unsafe-inline'"
+        'https://unpkg.com'
     ],
     'style-src': [
         "'self'",
