@@ -562,7 +562,7 @@
                                 <input type="text" placeholder="Name" name="username" required>
                                 <input type="email" placeholder="Email" name="useremail" required>
                                 <select name="profession" required>
-                                    <option value="Not Selected" selected>Select Your Profession</option>
+                                    <option value="" selected>Select Your Profession</option>
                                     <option value="Student">Student</option>
                                     <option value="Developer">Developer</option>
                                     <option value="Industry Expert">Industry Expert</option>
@@ -623,18 +623,3 @@
 </div>
 
 {% endblock content %}
-
-{% block inlinejs %}
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script>
-    var typed = new Typed('#element', {
-        strings: ['3rd year student of Computer science and engineering', 'Pursuing B.Tech from Brainware University', 'Passionate about machine learning and data analytics', 'and solving real-world problems'],
-        typeSpeed: 40,
-        backSpeed: 5,
-        backDelay: 1000,
-        loop: true,
-        cursorChar: '🖋',
-    });
-
-</script>
-{% endblock inlinejs %}

@@ -41,4 +41,43 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   fadeElements.forEach(el => fadeObserver.observe(el));
+
+  const alertBox = document.getElementById("custom-alert");
+  const messageSpan = document.getElementById("custom-alert-message");
+  const closeBtn = document.getElementById("close-alert-btn");
+
+  // Get message from data attribute
+  const message = alertBox?.dataset.message || "";
+
+  if (message && messageSpan) {
+    messageSpan.textContent = message;
+    alertBox.classList.remove("hidden");
+
+    setTimeout(() => {
+      alertBox.classList.add("hidden");
+    }, 15000);
+  }
+
+  // Attach event listener instead of inline onclick
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      alertBox.classList.add("hidden");
+    });
+  }
 });
+
+function showCustomAlert(message, duration = 15000) {
+  const alertBox = document.getElementById('custom-alert');
+  const messageSpan = document.getElementById('custom-alert-message');
+
+  messageSpan.textContent = message;
+  alertBox.classList.remove('hidden');
+
+  setTimeout(() => {
+    alertBox.classList.add('hidden');
+  }, duration);
+}
+
+function closeAlert() {
+  document.getElementById('custom-alert').classList.add('hidden');
+}

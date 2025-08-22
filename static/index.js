@@ -384,3 +384,17 @@ function animateGradient() {
 setInterval(() => {
     animateGradient();
 }, 2500);
+
+new Typed("#element", {
+    strings: [
+        "3rd year student of Computer science and engineering",
+        "Pursuing B.Tech from Brainware University",
+        "Passionate about machine learning and data analytics",
+        "and solving real-world problems"
+    ],
+    typeSpeed: 40,
+    backSpeed: 5,
+    backDelay: 1000,
+    loop: true,
+    cursorChar: "🖋",
+});

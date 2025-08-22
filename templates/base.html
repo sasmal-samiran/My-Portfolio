@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}" />
     <script defer src="{{url_for('static', filename='scripts.js')}}"></script>
+    <script defer src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
     {% block css %}{% endblock css %}
     {% block js %}{% endblock js %}
@@ -23,37 +24,16 @@
     {% block content %}{% endblock content %}
 
     <!-- Alert messages -->
-    <div id="custom-alert" class="custom-alert hidden fade-in">
+    <div id="custom-alert" class="custom-alert hidden fade-in" data-message="{{ messages[0] if messages else '' }}">
         <div class="alert-icon"><i class="fa-solid fa-circle-info"></i></div>
         <span id="custom-alert-message"></span>
-        <button onclick="closeAlert()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <button id="close-alert-btn" class="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
     </div>
 
     {% set messages = get_flashed_messages() %}
     {% block inlinejs %}{% endblock inlinejs %}
-    <script>
-        const message = "{{ messages[0] if messages else '' }}";
-
-        if (message) {
-            showCustomAlert(message);
-        }
-
-        function showCustomAlert(message, duration = 15000) {
-            const alertBox = document.getElementById('custom-alert');
-            const messageSpan = document.getElementById('custom-alert-message');
-
-            messageSpan.textContent = message;
-            alertBox.classList.remove('hidden');
-
-            setTimeout(() => {
-                alertBox.classList.add('hidden');
-            }, duration);
-        }
-
-        function closeAlert() {
-            document.getElementById('custom-alert').classList.add('hidden');
-        }
-    </script>
 
 </body>
 
