@@ -4,12 +4,19 @@ from dotenv import load_dotenv
 import os, smtplib, logging
 
 from flask_cors import CORS
+from flask_talisman import Talisman
 
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
+
+talisman = Talisman(
+    app,
+    content_security_policy=None,  # start with None if you load external JS/CSS
+    force_https=True               # redirect all http → https
+)
 
 app.config['SECRET_KEY'] = os.urandom(24)
 

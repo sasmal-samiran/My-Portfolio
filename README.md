@@ -30,7 +30,11 @@ I have experience with the following technologies and skills:
 ## Projects
 Here are some of the projects I've worked on:
 
-### 1. **A simple GUI Chatbot**
+### 1. **Online Store Customer Insights Dashboard**
+
+[Visit the Project](#)
+
+### 2. **A simple weather application**
 
 [Visit the Project](#)
 
